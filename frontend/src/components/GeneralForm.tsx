@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import { getProcesses } from '../api/processes'
-import { Applicability, Process } from '../types'
+import { Process } from '../types'
 
 interface Props {
   processes: Process[]
@@ -10,14 +10,14 @@ interface Props {
 }
 
 export default function GeneralForm({ processes, setProcesses, onSubmit }: Props) {
-  const { control, handleSubmit } = useForm<Record<string, Applicability>>({})
+  const { control, handleSubmit } = useForm<Record<string, string>>({})
 
   useEffect(() => {
     getProcesses().then(setProcesses)
   }, [])
 
   const submit = handleSubmit((data) => {
-    const values = Object.values(data).map((v) => (v === Applicability.NZ ? 0 : 1))
+    const values = Object.values(data).map((v) => (v === 'NA' ? 0 : Number(v)))
     onSubmit(values)
   })
 
@@ -29,11 +29,12 @@ export default function GeneralForm({ processes, setProcesses, onSubmit }: Props
           <Controller
             name={String(p.id)}
             control={control}
-            defaultValue={Applicability.MZ}
+            defaultValue="NA"
             render={({ field }) => (
               <select {...field}>
-                {Object.values(Applicability).map((a) => (
-                  <option key={a} value={a}>{a}</option>
+                <option value="NA">N/A</option>
+                {[1,2,3,4,5].map((n) => (
+                  <option key={n} value={n}>{n}</option>
                 ))}
               </select>
             )}

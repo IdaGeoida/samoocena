@@ -63,17 +63,17 @@ def test_create_question(client):
 
 def test_score_processes(client):
     client.post('/api/categories/', json={'id': 1, 'name': 'Cat'})
-    client.post('/api/processes/', json={'name': 'P1', 'category_id': 1, 'applicability': 'MZ'})
-    client.post('/api/processes/', json={'name': 'P2', 'category_id': 1, 'applicability': 'NZ'})
-    client.post('/api/processes/', json={'name': 'P3', 'category_id': 1, 'applicability': 'WP'})
+    client.post('/api/processes/', json={'name': 'P1', 'category_id': 1})
+    client.post('/api/processes/', json={'name': 'P2', 'category_id': 1})
+    client.post('/api/processes/', json={'name': 'P3', 'category_id': 1})
 
     payload = [
-        {'process_id': 1, 'level_general': 1, 'level_detailed': 2},
-        {'process_id': 2, 'level_general': 3, 'level_detailed': 4},
-        {'process_id': 3, 'level_general': 5, 'level_detailed': 5}
+        {'process_id': 1, 'score': 1},
+        {'process_id': 2, 'score': None},
+        {'process_id': 3, 'score': 5}
     ]
     resp = client.post('/api/scoring/', json=payload)
     assert resp.status_code == 200
     data = resp.json()
-    assert data['by_process'] == [1.5, 5]
-    assert data['overall'] == pytest.approx(3.25)
+    assert data['by_process'] == [1, 5]
+    assert data['overall'] == pytest.approx(3)
