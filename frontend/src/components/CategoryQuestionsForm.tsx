@@ -33,12 +33,24 @@ export default function CategoryQuestionsForm({ category, index, total, onSubmit
       <ProgressBar now={((index + 1) / total) * 100} label={`${index + 1}/${total}`} className="mb-3" />
       {subcategories.map((sub) => (
         <div key={sub.id} className="mb-4">
-          <h5>{sub.name}</h5>
-          {sub.description && <p className="text-muted">{sub.description}</p>}
+          <Form.Group>
+            <Form.Label as="h5" className="mb-0">
+              {sub.name}
+            </Form.Label>
+            {sub.description && (
+              <Form.Text className="text-muted d-block mb-2">
+                {sub.description}
+              </Form.Text>
+            )}
+          </Form.Group>
           {questions.filter((q) => q.subcategory_id === sub.id).map((q) => (
-            <div key={q.id} className="mb-3">
+            <Form.Group key={q.id} className="mb-3">
               <Form.Label>{q.description}</Form.Label>
-              {q.detail && <div className="text-muted mb-1" style={{ fontSize: 'smaller' }}>{q.detail}</div>}
+              {q.detail && (
+                <Form.Text className="text-muted d-block mb-1" style={{ fontSize: 'smaller' }}>
+                  {q.detail}
+                </Form.Text>
+              )}
               <div className="d-flex align-items-center">
                 <div className="me-2">
                   {[1,2,3,4,5].map((n) => (
@@ -63,7 +75,7 @@ export default function CategoryQuestionsForm({ category, index, total, onSubmit
                   {...register(String(q.id))}
                 />
               </div>
-            </div>
+            </Form.Group>
           ))}
         </div>
       ))}
