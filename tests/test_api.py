@@ -77,3 +77,16 @@ def test_score_processes(client):
     data = resp.json()
     assert data['by_process'] == [1, 5]
     assert data['overall'] == pytest.approx(3)
+
+
+def test_list_processes_by_category(client):
+    client.post('/api/categories/', json={'id': 1, 'name': 'Cat1'})
+    client.post('/api/categories/', json={'id': 2, 'name': 'Cat2'})
+    client.post('/api/processes/', json={'name': 'P1', 'category_id': 1})
+    client.post('/api/processes/', json={'name': 'P2', 'category_id': 2})
+
+    resp = client.get('/api/processes/', params={'category_id': '1'})
+    assert resp.status_code == 200
+    data = resp.json()
+    assert len(data) == 1
+    assert data[0]['category_id'] == 1

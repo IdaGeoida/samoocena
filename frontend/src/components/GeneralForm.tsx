@@ -7,14 +7,15 @@ interface Props {
   processes: Process[]
   setProcesses: (p: Process[]) => void
   onSubmit: (results: number[]) => void
+  categoryIds: number[]
 }
 
-export default function GeneralForm({ processes, setProcesses, onSubmit }: Props) {
+export default function GeneralForm({ processes, setProcesses, onSubmit, categoryIds }: Props) {
   const { control, handleSubmit } = useForm<Record<string, string>>({})
 
   useEffect(() => {
-    getProcesses().then(setProcesses)
-  }, [])
+    getProcesses(categoryIds).then(setProcesses)
+  }, [categoryIds])
 
   const submit = handleSubmit((data) => {
     const values = Object.values(data).map((v) => (v === 'NA' ? 0 : Number(v)))
