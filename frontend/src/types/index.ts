@@ -9,14 +9,6 @@ export interface Question {
   description: string
   category_id: number
   subcategory_id: number
-  details?: string
-}
-
-export interface Subcategory {
-  id: number
-  category_id: number
-  name: string
-  description?: string
 }
 
 export interface Category {
