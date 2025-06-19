@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import { getQuestions } from '../api/questions'
 import { Question } from '../types'
+import { Form, Button } from 'react-bootstrap'
 
 interface Props {
   questions: Question[]
@@ -23,26 +24,27 @@ export default function GeneralForm({ questions, setQuestions, onSubmit, categor
   })
 
   return (
-    <form onSubmit={submit}>
+    <Form onSubmit={submit}>
       {questions.map((q) => (
-        <div key={q.id}>
-          <label>{q.description}</label>
+        <div key={q.id} className="mb-3">
+          <Form.Label>{q.description}</Form.Label>
           <Controller
             name={String(q.id)}
             control={control}
-            defaultValue="NA"
+            defaultValue=""
             render={({ field }) => (
-              <select {...field}>
+              <Form.Select {...field}>
+                <option value="">-- wybierz --</option>
                 <option value="NA">N/A</option>
-                {[1,2,3,4,5].map((n) => (
+                {[1, 2, 3, 4, 5].map((n) => (
                   <option key={n} value={n}>{n}</option>
                 ))}
-              </select>
+              </Form.Select>
             )}
           />
         </div>
       ))}
-      <button type="submit">Submit</button>
-    </form>
+      <Button type="submit">Submit</Button>
+    </Form>
   )
 }

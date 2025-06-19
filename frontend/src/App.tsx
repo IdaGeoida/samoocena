@@ -3,6 +3,7 @@ import GeneralForm from './components/GeneralForm'
 import CategoryForm from './components/CategoryForm'
 import ResultsView from './components/ResultsView'
 import { Question } from './types'
+import { Container, Button } from 'react-bootstrap'
 
 export default function App() {
   const [step, setStep] = useState<'start' | 'categories' | 'questions' | 'results'>('start')
@@ -11,33 +12,45 @@ export default function App() {
   const [results, setResults] = useState<number[] | null>(null)
 
   if (step === 'start') {
-    return <button onClick={() => setStep('categories')}>Start</button>
+    return (
+      <Container className="text-center mt-5">
+        <Button onClick={() => setStep('categories')}>Start</Button>
+      </Container>
+    )
   }
 
   if (step === 'categories') {
     return (
-      <CategoryForm
-        onSubmit={(ids) => {
-          setSelectedCategories(ids)
-          setStep('questions')
-        }}
-      />
+      <Container className="mt-4">
+        <CategoryForm
+          onSubmit={(ids) => {
+            setSelectedCategories(ids)
+            setStep('questions')
+          }}
+        />
+      </Container>
     )
   }
 
   if (step === 'questions') {
     return (
-      <GeneralForm
-        categoryIds={selectedCategories}
-        questions={questions}
-        setQuestions={setQuestions}
-        onSubmit={(res) => {
-          setResults(res)
-          setStep('results')
-        }}
-      />
+      <Container className="mt-4">
+        <GeneralForm
+          categoryIds={selectedCategories}
+          questions={questions}
+          setQuestions={setQuestions}
+          onSubmit={(res) => {
+            setResults(res)
+            setStep('results')
+          }}
+        />
+      </Container>
     )
   }
 
-  return <ResultsView results={results || []} />
+  return (
+    <Container className="mt-4">
+      <ResultsView results={results || []} />
+    </Container>
+  )
 }
