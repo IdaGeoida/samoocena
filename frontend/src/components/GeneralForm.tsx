@@ -1,20 +1,20 @@
 import { useEffect } from 'react'
 import { useForm, Controller } from 'react-hook-form'
-import { getProcesses } from '../api/processes'
-import { Process } from '../types'
+import { getQuestions } from '../api/questions'
+import { Question } from '../types'
 
 interface Props {
-  processes: Process[]
-  setProcesses: (p: Process[]) => void
+  questions: Question[]
+  setQuestions: (q: Question[]) => void
   onSubmit: (results: number[]) => void
   categoryIds: number[]
 }
 
-export default function GeneralForm({ processes, setProcesses, onSubmit, categoryIds }: Props) {
+export default function GeneralForm({ questions, setQuestions, onSubmit, categoryIds }: Props) {
   const { control, handleSubmit } = useForm<Record<string, string>>({})
 
   useEffect(() => {
-    getProcesses(categoryIds).then(setProcesses)
+    getQuestions(categoryIds).then(setQuestions)
   }, [categoryIds])
 
   const submit = handleSubmit((data) => {
@@ -24,11 +24,11 @@ export default function GeneralForm({ processes, setProcesses, onSubmit, categor
 
   return (
     <form onSubmit={submit}>
-      {processes.map((p) => (
-        <div key={p.id}>
-          <label>{p.name}</label>
+      {questions.map((q) => (
+        <div key={q.id}>
+          <label>{q.description}</label>
           <Controller
-            name={String(p.id)}
+            name={String(q.id)}
             control={control}
             defaultValue="NA"
             render={({ field }) => (
