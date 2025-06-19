@@ -10,8 +10,12 @@ from app.models.models import Base, Category, Subcategory, Question
 
 def _load_items(session, model, items: List[Dict[str, Any]]):
     for item in items:
-        if session.get(model, item['id']) is None:
+        obj = session.get(model, item['id'])
+        if obj is None:
             session.add(model(**item))
+        else:
+            for key, value in item.items():
+                setattr(obj, key, value)
 
 
 def load_initial_data(path: str | Path | None = None) -> None:
