@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: app
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+  web:
+    build: .
+    environment:
+      DATABASE_URL: postgresql+psycopg2://user:password@db:5432/app
+    depends_on:
+      - db
+    ports:
+      - '8000:8000'
+volumes:
+  db_data:
