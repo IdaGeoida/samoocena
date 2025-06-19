@@ -20,11 +20,4 @@ def create_category(category: CategoryCreate, db: Session = Depends(get_db)):
 
 @router.get("/", response_model=List[CategoryRead])
 def list_categories(db: Session = Depends(get_db)):
-    # avoid returning duplicate category names
-    seen = set()
-    result = []
-    for cat in db.query(Category).order_by(Category.id).all():
-        if cat.name not in seen:
-            seen.add(cat.name)
-            result.append(cat)
-    return result
+    return db.query(Category).all()
