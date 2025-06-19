@@ -34,19 +34,11 @@ export default function CategoryQuestionsForm({ category, index, total, onSubmit
       {subcategories.map((sub) => (
         <div key={sub.id} className="mb-4">
           <h5>{sub.name}</h5>
-          {sub.description && (
-            <Form.Text className="text-muted d-block mb-2">
-              {sub.description}
-            </Form.Text>
-          )}
+          {sub.description && <p className="text-muted">{sub.description}</p>}
           {questions.filter((q) => q.subcategory_id === sub.id).map((q) => (
             <div key={q.id} className="mb-3">
               <Form.Label>{q.description}</Form.Label>
-              {q.detail && (
-                <Form.Text className="text-muted mb-1" style={{ fontSize: 'smaller' }}>
-                  {q.detail}
-                </Form.Text>
-              )}
+              {q.detail && <div className="text-muted mb-1" style={{ fontSize: 'smaller' }}>{q.detail}</div>}
               <div className="d-flex align-items-center">
                 <div className="me-2">
                   {[1,2,3,4,5].map((n) => (
