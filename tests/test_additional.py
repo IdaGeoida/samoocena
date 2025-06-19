@@ -42,10 +42,10 @@ def test_score_ignores_missing_process(client):
 def test_list_questions_multiple_categories(client):
     client.post('/api/categories/', json={'id': 1, 'name': 'Cat1'})
     client.post('/api/categories/', json={'id': 2, 'name': 'Cat2'})
-    client.post('/api/subcategories/', json={'id': 1, 'name': 'Sub1', 'category_id': 1})
-    client.post('/api/subcategories/', json={'id': 2, 'name': 'Sub2', 'category_id': 2})
-    client.post('/api/questions/', json={'id': 1, 'category_id': 1, 'subcategory_id': 1, 'description': 'Q1'})
-    client.post('/api/questions/', json={'id': 2, 'category_id': 2, 'subcategory_id': 2, 'description': 'Q2'})
+    client.post('/api/subcategories/', json={'id': 1, 'name': 'Sub1', 'description': 'd1', 'category_id': 1})
+    client.post('/api/subcategories/', json={'id': 2, 'name': 'Sub2', 'description': 'd2', 'category_id': 2})
+    client.post('/api/questions/', json={'id': 1, 'category_id': 1, 'subcategory_id': 1, 'description': 'Q1', 'detail': 'd1'})
+    client.post('/api/questions/', json={'id': 2, 'category_id': 2, 'subcategory_id': 2, 'description': 'Q2', 'detail': 'd2'})
     resp = client.get('/api/questions/', params={'category_id': '1,2'})
     assert resp.status_code == 200
     data = resp.json()
@@ -56,8 +56,8 @@ def test_load_initial_data(tmp_path):
     os.environ['SKIP_INIT_DATA'] = ''
     data = {
         'categories': [{'id': 1, 'name': 'Cat'}],
-        'subcategories': [{'id': 1, 'name': 'Sub', 'category_id': 1}],
-        'questions': [{'id': 1, 'category_id': 1, 'subcategory_id': 1, 'description': 'Q'}]
+        'subcategories': [{'id': 1, 'name': 'Sub', 'description': 'd', 'category_id': 1}],
+        'questions': [{'id': 1, 'category_id': 1, 'subcategory_id': 1, 'description': 'Q', 'detail': 'info'}]
     }
     path = tmp_path / 'data.yml'
     path.write_text(yaml.safe_dump(data))

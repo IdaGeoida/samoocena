@@ -5,7 +5,7 @@ import { Category } from '../types'
 import { Form, Button } from 'react-bootstrap'
 
 interface Props {
-  onSubmit: (categoryIds: number[]) => void
+  onSubmit: (categories: Category[]) => void
 }
 
 export default function CategoryForm({ onSubmit }: Props) {
@@ -17,16 +17,16 @@ export default function CategoryForm({ onSubmit }: Props) {
   }, [])
 
   const submit = handleSubmit((data) => {
-    const ids: number[] = []
+    const result: Category[] = []
     categories.forEach((c) => {
       const applies = data[`applies_${c.id}`] === 'yes'
       const implemented = data[`impl_${c.id}`] === 'yes'
       const want = data[`want_${c.id}`] === 'yes'
       if (applies && (implemented || want)) {
-        ids.push(c.id)
+        result.push(c)
       }
     })
-    onSubmit(ids)
+    onSubmit(result)
   })
 
   return (

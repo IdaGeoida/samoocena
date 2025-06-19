@@ -36,7 +36,7 @@ def test_create_and_list_categories(client):
 
 def test_create_subcategory(client):
     client.post('/api/categories/', json={'id': 1, 'name': 'Cat'})
-    resp = client.post('/api/subcategories/', json={'id': 1, 'name': 'Sub', 'category_id': 1})
+    resp = client.post('/api/subcategories/', json={'id': 1, 'name': 'Sub', 'description': 'Desc', 'category_id': 1})
     assert resp.status_code == 200
     resp = client.get('/api/subcategories/')
     assert resp.status_code == 200
@@ -47,12 +47,13 @@ def test_create_subcategory(client):
 
 def test_create_question(client):
     client.post('/api/categories/', json={'id': 1, 'name': 'Cat'})
-    client.post('/api/subcategories/', json={'id': 1, 'name': 'Sub', 'category_id': 1})
+    client.post('/api/subcategories/', json={'id': 1, 'name': 'Sub', 'description': 'Desc', 'category_id': 1})
     resp = client.post('/api/questions/', json={
         'id': 1,
         'category_id': 1,
         'subcategory_id': 1,
-        'description': 'Q1'
+        'description': 'Q1',
+        'detail': 'd'
     })
     assert resp.status_code == 200
     resp = client.get('/api/questions/')
@@ -95,8 +96,8 @@ def test_list_processes_by_category(client):
 def test_list_questions_by_category(client):
     client.post('/api/categories/', json={'id': 1, 'name': 'Cat1'})
     client.post('/api/categories/', json={'id': 2, 'name': 'Cat2'})
-    client.post('/api/subcategories/', json={'id': 1, 'name': 'Sub1', 'category_id': 1})
-    client.post('/api/subcategories/', json={'id': 2, 'name': 'Sub2', 'category_id': 2})
+    client.post('/api/subcategories/', json={'id': 1, 'name': 'Sub1', 'description': 'd1', 'category_id': 1})
+    client.post('/api/subcategories/', json={'id': 2, 'name': 'Sub2', 'description': 'd2', 'category_id': 2})
     client.post('/api/questions/', json={'id': 1, 'category_id': 1, 'subcategory_id': 1, 'description': 'Q1'})
     client.post('/api/questions/', json={'id': 2, 'category_id': 1, 'subcategory_id': 1, 'description': 'Q2'})
     client.post('/api/questions/', json={'id': 3, 'category_id': 2, 'subcategory_id': 2, 'description': 'Q3'})
@@ -106,3 +107,16 @@ def test_list_questions_by_category(client):
     data = resp.json()
     assert len(data) == 2
     assert all(q['category_id'] == 1 for q in data)
+
+
+def test_list_subcategories_by_category(client):
+    client.post('/api/categories/', json={'id': 1, 'name': 'Cat1'})
+    client.post('/api/categories/', json={'id': 2, 'name': 'Cat2'})
+    client.post('/api/subcategories/', json={'id': 1, 'name': 'Sub1', 'description': 'd1', 'category_id': 1})
+    client.post('/api/subcategories/', json={'id': 2, 'name': 'Sub2', 'description': 'd2', 'category_id': 2})
+
+    resp = client.get('/api/subcategories/', params={'category_id': '1'})
+    assert resp.status_code == 200
+    data = resp.json()
+    assert len(data) == 1
+    assert data[0]['category_id'] == 1
