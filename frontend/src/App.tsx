@@ -2,12 +2,12 @@ import { useState } from 'react'
 import GeneralForm from './components/GeneralForm'
 import CategoryForm from './components/CategoryForm'
 import ResultsView from './components/ResultsView'
-import { Process } from './types'
+import { Question } from './types'
 
 export default function App() {
-  const [step, setStep] = useState<'start' | 'categories' | 'processes' | 'results'>('start')
+  const [step, setStep] = useState<'start' | 'categories' | 'questions' | 'results'>('start')
   const [selectedCategories, setSelectedCategories] = useState<number[]>([])
-  const [processes, setProcesses] = useState<Process[]>([])
+  const [questions, setQuestions] = useState<Question[]>([])
   const [results, setResults] = useState<number[] | null>(null)
 
   if (step === 'start') {
@@ -19,18 +19,18 @@ export default function App() {
       <CategoryForm
         onSubmit={(ids) => {
           setSelectedCategories(ids)
-          setStep('processes')
+          setStep('questions')
         }}
       />
     )
   }
 
-  if (step === 'processes') {
+  if (step === 'questions') {
     return (
       <GeneralForm
         categoryIds={selectedCategories}
-        processes={processes}
-        setProcesses={setProcesses}
+        questions={questions}
+        setQuestions={setQuestions}
         onSubmit={(res) => {
           setResults(res)
           setStep('results')
