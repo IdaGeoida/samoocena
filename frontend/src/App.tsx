@@ -2,12 +2,12 @@ import { useState } from 'react'
 import CategoryQuestionsForm from './components/CategoryQuestionsForm'
 import CategoryForm from './components/CategoryForm'
 import ResultsView from './components/ResultsView'
-import { Category } from './types'
+import { CategoryGroup } from './types'
 import { Container, Button } from 'react-bootstrap'
 
 export default function App() {
   const [step, setStep] = useState<'start' | 'categories' | 'questions' | 'results'>('start')
-  const [selectedCategories, setSelectedCategories] = useState<Category[]>([])
+  const [selectedCategories, setSelectedCategories] = useState<CategoryGroup[]>([])
   const [currentIndex, setCurrentIndex] = useState(0)
   const [results, setResults] = useState<number[]>([])
 

@@ -20,4 +20,4 @@ def create_category(category: CategoryCreate, db: Session = Depends(get_db)):
 
 @router.get("/", response_model=List[CategoryRead])
 def list_categories(db: Session = Depends(get_db)):
-    return db.query(Category).all()
+    return db.query(Category).order_by(Category.id).all()

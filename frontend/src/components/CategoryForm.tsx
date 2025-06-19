@@ -1,23 +1,34 @@
 import React, { useEffect } from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import axios from 'axios'
-import { Category } from '../types'
+import { CategoryGroup, Category } from '../types'
 import { Form, Button } from 'react-bootstrap'
 
 interface Props {
-  onSubmit: (categories: Category[]) => void
+  onSubmit: (categories: CategoryGroup[]) => void
 }
 
 export default function CategoryForm({ onSubmit }: Props) {
   const { control, handleSubmit, watch } = useForm<Record<string, string>>({})
-  const [categories, setCategories] = React.useState<Category[]>([])
+  const [categories, setCategories] = React.useState<CategoryGroup[]>([])
 
   useEffect(() => {
-    axios.get<Category[]>('/api/categories/').then(res => setCategories(res.data))
+    axios.get<Category[]>('/api/categories/').then(res => {
+      const map = new Map<string, CategoryGroup>()
+      res.data.forEach((c) => {
+        const existing = map.get(c.name)
+        if (existing) {
+          existing.ids.push(c.id)
+        } else {
+          map.set(c.name, { ...c, ids: [c.id] })
+        }
+      })
+      setCategories(Array.from(map.values()))
+    })
   }, [])
 
   const submit = handleSubmit((data) => {
-    const result: Category[] = []
+    const result: CategoryGroup[] = []
     categories.forEach((c) => {
       const applies = data[`applies_${c.id}`] === 'yes'
       const implemented = data[`impl_${c.id}`] === 'yes'

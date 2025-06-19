@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { getQuestions } from '../api/questions'
 import { getSubcategories } from '../api/subcategories'
-import { Question, Subcategory, Category } from '../types'
+import { Question, Subcategory, CategoryGroup } from '../types'
 import { Form, Button, ProgressBar } from 'react-bootstrap'
 
 interface Props {
-  category: Category
+  category: CategoryGroup
   index: number
   total: number
   onSubmit: (values: number[]) => void
@@ -18,9 +18,9 @@ export default function CategoryQuestionsForm({ category, index, total, onSubmit
   const [subcategories, setSubcategories] = useState<Subcategory[]>([])
 
   useEffect(() => {
-    getQuestions([category.id]).then(setQuestions)
-    getSubcategories([category.id]).then(setSubcategories)
-  }, [category.id])
+    getQuestions(category.ids).then(setQuestions)
+    getSubcategories(category.ids).then(setSubcategories)
+  }, [category.ids])
 
   const submit = handleSubmit((data) => {
     const values = Object.values(data).map((v) => (v === 'NA' ? 0 : Number(v)))
