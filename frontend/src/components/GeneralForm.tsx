@@ -10,7 +10,7 @@ interface Props {
 }
 
 export default function GeneralForm({ processes, setProcesses, onSubmit }: Props) {
-  const { control, handleSubmit } = useForm<{ [key: number]: Applicability }>({})
+  const { control, handleSubmit } = useForm<Record<string, Applicability>>({})
 
   useEffect(() => {
     getProcesses().then(setProcesses)
