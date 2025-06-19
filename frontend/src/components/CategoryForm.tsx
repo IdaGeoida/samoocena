@@ -13,12 +13,7 @@ export default function CategoryForm({ onSubmit }: Props) {
   const [categories, setCategories] = React.useState<Category[]>([])
 
   useEffect(() => {
-    axios.get<Category[]>('/api/categories/').then(res => {
-      const unique = res.data.filter(
-        (c, idx, arr) => arr.findIndex((x) => x.id === c.id) === idx,
-      )
-      setCategories(unique)
-    })
+    axios.get<Category[]>('/api/categories/').then(res => setCategories(res.data))
   }, [])
 
   const submit = handleSubmit((data) => {
