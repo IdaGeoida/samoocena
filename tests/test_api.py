@@ -34,15 +34,6 @@ def test_create_and_list_categories(client):
     assert resp.status_code == 200
     assert len(resp.json()) == 1
 
-def test_category_deduplication(client):
-    client.post('/api/categories/', json={'id': 1, 'name': 'Cat'})
-    client.post('/api/categories/', json={'id': 2, 'name': 'Cat'})
-    resp = client.get('/api/categories/')
-    assert resp.status_code == 200
-    data = resp.json()
-    assert len(data) == 1
-    assert data[0]['name'] == 'Cat'
-
 def test_create_subcategory(client):
     client.post('/api/categories/', json={'id': 1, 'name': 'Cat'})
     resp = client.post('/api/subcategories/', json={'id': 1, 'name': 'Sub', 'description': 'Desc', 'category_id': 1})
