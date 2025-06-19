@@ -3,8 +3,9 @@ import { Process } from '../types'
 
 const api = axios.create({ baseURL: '/api' })
 
-export const getProcesses = async (): Promise<Process[]> => {
-  const res = await api.get<Process[]>('/processes/')
+export const getProcesses = async (categories?: number[]): Promise<Process[]> => {
+  const params = categories && categories.length ? { category_id: categories.join(',') } : {}
+  const res = await api.get<Process[]>('/processes/', { params })
   return res.data
 }
 

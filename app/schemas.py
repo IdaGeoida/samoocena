@@ -1,11 +1,9 @@
-from typing import Optional, List
+from typing import Optional
 from pydantic import BaseModel
-from app.models.models import Applicability
 
 class ProcessBase(BaseModel):
     name: str
     category_id: int
-    applicability: Applicability
 
 class ProcessCreate(ProcessBase):
     pass
@@ -62,6 +60,4 @@ class QuestionRead(QuestionBase):
 
 class ScoreInput(BaseModel):
     process_id: int
-    level_general: int
-    level_detailed: int
-    level_extension: Optional[int] = None
+    score: Optional[int] = None
