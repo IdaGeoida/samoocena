@@ -1,0 +1,21 @@
+categories:
+  - id: 10
+    name: IT
+  - id: 20
+    name: HR
+subcategories:
+  - id: 10
+    name: Security
+    category_id: 10
+  - id: 20
+    name: Recruitment
+    category_id: 20
+questions:
+  - id: 10
+    category_id: 10
+    subcategory_id: 10
+    description: Do you use two-factor authentication?
+  - id: 20
+    category_id: 20
+    subcategory_id: 20
+    description: Do you have a hiring process?
