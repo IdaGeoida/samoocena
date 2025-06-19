@@ -6,16 +6,20 @@ categories:
 subcategories:
   - id: 10
     name: Security
+    description: Questions related to security practices
     category_id: 10
   - id: 20
     name: Recruitment
+    description: Hiring and onboarding topics
     category_id: 20
 questions:
   - id: 10
     category_id: 10
     subcategory_id: 10
     description: Do you use two-factor authentication?
+    detail: Additional info about MFA usage
   - id: 20
     category_id: 20
     subcategory_id: 20
     description: Do you have a hiring process?
+    detail: Outline of recruitment procedures

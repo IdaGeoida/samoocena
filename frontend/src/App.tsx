@@ -1,15 +1,15 @@
 import { useState } from 'react'
-import GeneralForm from './components/GeneralForm'
+import CategoryQuestionsForm from './components/CategoryQuestionsForm'
 import CategoryForm from './components/CategoryForm'
 import ResultsView from './components/ResultsView'
-import { Question } from './types'
+import { Category } from './types'
 import { Container, Button } from 'react-bootstrap'
 
 export default function App() {
   const [step, setStep] = useState<'start' | 'categories' | 'questions' | 'results'>('start')
-  const [selectedCategories, setSelectedCategories] = useState<number[]>([])
-  const [questions, setQuestions] = useState<Question[]>([])
-  const [results, setResults] = useState<number[] | null>(null)
+  const [selectedCategories, setSelectedCategories] = useState<Category[]>([])
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [results, setResults] = useState<number[]>([])
 
   if (step === 'start') {
     return (
@@ -23,8 +23,10 @@ export default function App() {
     return (
       <Container className="mt-4">
         <CategoryForm
-          onSubmit={(ids) => {
-            setSelectedCategories(ids)
+          onSubmit={(cats) => {
+            setSelectedCategories(cats)
+            setCurrentIndex(0)
+            setResults([])
             setStep('questions')
           }}
         />
@@ -33,15 +35,20 @@ export default function App() {
   }
 
   if (step === 'questions') {
+    const category = selectedCategories[currentIndex]
     return (
       <Container className="mt-4">
-        <GeneralForm
-          categoryIds={selectedCategories}
-          questions={questions}
-          setQuestions={setQuestions}
-          onSubmit={(res) => {
-            setResults(res)
-            setStep('results')
+        <CategoryQuestionsForm
+          category={category}
+          index={currentIndex}
+          total={selectedCategories.length}
+          onSubmit={(vals) => {
+            setResults((prev) => [...prev, ...vals])
+            if (currentIndex + 1 < selectedCategories.length) {
+              setCurrentIndex(currentIndex + 1)
+            } else {
+              setStep('results')
+            }
           }}
         />
       </Container>

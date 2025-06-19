@@ -31,6 +31,7 @@ class CategoryRead(CategoryBase):
 class SubcategoryBase(BaseModel):
     id: int
     name: str
+    description: str | None = None
     category_id: int
 
 
@@ -48,6 +49,7 @@ class QuestionBase(BaseModel):
     category_id: int
     subcategory_id: int
     description: str
+    detail: str | None = None
 
 
 class QuestionCreate(QuestionBase):

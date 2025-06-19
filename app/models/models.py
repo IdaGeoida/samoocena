@@ -19,6 +19,7 @@ class Subcategory(Base):
     __tablename__ = 'subcategories'
     id = Column(Integer, primary_key=True, autoincrement=False)
     name = Column(String, nullable=False)
+    description = Column(String, default="", nullable=True)
     category_id = Column(Integer, ForeignKey('categories.id'), nullable=False)
 
 
@@ -28,3 +29,4 @@ class Question(Base):
     category_id = Column(Integer, ForeignKey('categories.id'), nullable=False)
     subcategory_id = Column(Integer, ForeignKey('subcategories.id'), nullable=False)
     description = Column(String, nullable=False)
+    detail = Column(String, default="", nullable=True)
