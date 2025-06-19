@@ -1,19 +1,15 @@
 from typing import Optional
 from pydantic import BaseModel
 
-
 class ProcessBase(BaseModel):
     name: str
     category_id: int
 
-
 class ProcessCreate(ProcessBase):
     pass
 
-
 class ProcessRead(ProcessBase):
     id: int
-
     class Config:
         orm_mode = True
 
@@ -36,7 +32,6 @@ class SubcategoryBase(BaseModel):
     id: int
     name: str
     category_id: int
-    description: Optional[str] = None
 
 
 class SubcategoryCreate(SubcategoryBase):
@@ -53,7 +48,6 @@ class QuestionBase(BaseModel):
     category_id: int
     subcategory_id: int
     description: str
-    details: Optional[str] = None
 
 
 class QuestionCreate(QuestionBase):
@@ -63,7 +57,6 @@ class QuestionCreate(QuestionBase):
 class QuestionRead(QuestionBase):
     class Config:
         orm_mode = True
-
 
 class ScoreInput(BaseModel):
     process_id: int

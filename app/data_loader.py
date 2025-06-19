@@ -4,20 +4,13 @@ from typing import Any, Dict, List
 
 import yaml
 
-from sqlalchemy import inspect
-
 from app.core.db import SessionLocal, engine
 from app.models.models import Base, Category, Subcategory, Question
 
 
 def _load_items(session, model, items: List[Dict[str, Any]]):
-    inspector = inspect(model)
-    pk_cols = [c.name for c in inspector.primary_key]
     for item in items:
-        key = tuple(item[col] for col in pk_cols)
-        if len(pk_cols) == 1:
-            key = key[0]
-        if session.get(model, key) is None:
+        if session.get(model, item['id']) is None:
             session.add(model(**item))
 
 
