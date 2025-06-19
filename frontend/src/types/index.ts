@@ -23,3 +23,7 @@ export interface Category {
   id: number
   name: string
 }
+
+export interface CategoryGroup extends Category {
+  ids: number[]
+}
