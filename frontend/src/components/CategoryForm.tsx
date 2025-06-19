@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import axios from 'axios'
 import { Category } from '../types'
+import { Form, Button } from 'react-bootstrap'
 
 interface Props {
   onSubmit: (categoryIds: number[]) => void
@@ -29,51 +30,54 @@ export default function CategoryForm({ onSubmit }: Props) {
   })
 
   return (
-    <form onSubmit={submit}>
-      {categories.map(c => {
+    <Form onSubmit={submit}>
+      {categories.map((c) => {
         const applies = watch(`applies_${c.id}`)
         const impl = watch(`impl_${c.id}`)
         return (
-          <div key={c.id}>
+          <div key={c.id} className="mb-3">
             <h3>{c.name}</h3>
-            <label>Czy ma zastosowanie?</label>
+            <Form.Label>Czy ma zastosowanie?</Form.Label>
             <Controller
               name={`applies_${c.id}`}
               control={control}
-              defaultValue="no"
+              defaultValue=""
               render={({ field }) => (
-                <select {...field}>
+                <Form.Select {...field}>
+                  <option value="">-- wybierz --</option>
                   <option value="yes">Tak</option>
                   <option value="no">Nie</option>
-                </select>
+                </Form.Select>
               )}
             />
             {applies === 'yes' && (
               <>
-                <label>Czy organizacja realizuje u siebie te procesy?</label>
+                <Form.Label className="mt-2">Czy organizacja realizuje u siebie te procesy?</Form.Label>
                 <Controller
                   name={`impl_${c.id}`}
                   control={control}
-                  defaultValue="no"
+                  defaultValue=""
                   render={({ field }) => (
-                    <select {...field}>
+                    <Form.Select {...field}>
+                      <option value="">-- wybierz --</option>
                       <option value="yes">Tak</option>
                       <option value="no">Nie</option>
-                    </select>
+                    </Form.Select>
                   )}
                 />
                 {impl === 'no' && (
                   <>
-                    <label>Czy organizacja chciałaby je realizować?</label>
+                    <Form.Label className="mt-2">Czy organizacja chciałaby je realizować?</Form.Label>
                     <Controller
                       name={`want_${c.id}`}
                       control={control}
-                      defaultValue="no"
+                      defaultValue=""
                       render={({ field }) => (
-                        <select {...field}>
+                        <Form.Select {...field}>
+                          <option value="">-- wybierz --</option>
                           <option value="yes">Tak</option>
                           <option value="no">Nie</option>
-                        </select>
+                        </Form.Select>
                       )}
                     />
                   </>
@@ -83,7 +87,7 @@ export default function CategoryForm({ onSubmit }: Props) {
           </div>
         )
       })}
-      <button type="submit">Dalej</button>
-    </form>
+      <Button type="submit">Dalej</Button>
+    </Form>
   )
 }
