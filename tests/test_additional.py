@@ -43,14 +43,15 @@ def test_list_questions_multiple_categories(client):
     client.post('/api/categories/', json={'id': 1, 'name': 'Cat1'})
     client.post('/api/categories/', json={'id': 2, 'name': 'Cat2'})
     client.post('/api/subcategories/', json={'id': 1, 'name': 'Sub1', 'description': 'd1', 'category_id': 1})
-    client.post('/api/subcategories/', json={'id': 2, 'name': 'Sub2', 'description': 'd2', 'category_id': 2})
+    client.post('/api/subcategories/', json={'id': 1, 'name': 'Sub2', 'description': 'd2', 'category_id': 2})
     client.post('/api/questions/', json={'id': 1, 'category_id': 1, 'subcategory_id': 1, 'description': 'Q1', 'detail': 'd1'})
-    client.post('/api/questions/', json={'id': 2, 'category_id': 2, 'subcategory_id': 2, 'description': 'Q2', 'detail': 'd2'})
+    client.post('/api/questions/', json={'id': 1, 'category_id': 2, 'subcategory_id': 1, 'description': 'Q2', 'detail': 'd2'})
     resp = client.get('/api/questions/', params={'category_id': '1,2'})
     assert resp.status_code == 200
     data = resp.json()
     assert len(data) == 2
-    assert {q['id'] for q in data} == {1, 2}
+    ids = {(q['category_id'], q['subcategory_id'], q['id']) for q in data}
+    assert ids == {(1, 1, 1), (2, 1, 1)}
 
 def test_load_initial_data(tmp_path):
     os.environ['SKIP_INIT_DATA'] = ''
