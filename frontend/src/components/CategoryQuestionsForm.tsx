@@ -58,21 +58,21 @@ export default function CategoryQuestionsForm({ category, index, total, onSubmit
                       key={n}
                       inline
                       type="radio"
-                      id={`${q.id}_${n}`}
+                      id={`${q.category_id}_${q.subcategory_id}_${q.id}_${n}`}
                       label={String(n)}
                       value={n}
-                      {...register(String(q.id))}
+                      {...register(`${q.category_id}_${q.subcategory_id}_${q.id}`)}
                     />
                   ))}
                 </div>
                 <Form.Check
                   inline
                   type="radio"
-                  id={`${q.id}_na`}
+                  id={`${q.category_id}_${q.subcategory_id}_${q.id}_na`}
                   label="N/A"
                   value="NA"
                   className="text-secondary"
-                  {...register(String(q.id))}
+                  {...register(`${q.category_id}_${q.subcategory_id}_${q.id}`)}
                 />
               </div>
             </Form.Group>
