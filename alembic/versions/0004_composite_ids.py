@@ -7,6 +7,11 @@ Create Date: 2025-06-21 00:00:00
 from alembic import op
 import sqlalchemy as sa
 
+revision = '0004'
+down_revision = '0003'
+branch_labels = None
+depends_on = None
+
 def upgrade():
     op.drop_table('questions')
     op.drop_table('subcategories')
