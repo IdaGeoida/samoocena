@@ -28,6 +28,11 @@ export interface CategoryGroup extends Category {
   ids: number[]
 }
 
+export interface Score {
+  question: Question
+  value: number
+}
+
 export interface AssessmentCreate {
   employees_range: string
   volunteers_range: string

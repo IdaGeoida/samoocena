@@ -5,19 +5,19 @@ import ResultsView from './components/ResultsView'
 import MetadataForm from './components/MetadataForm'
 import ReportView from './components/ReportView'
 import { createAssessment } from './api/assessments'
-import { CategoryGroup } from './types'
+import { CategoryGroup, Score } from './types'
 import { Container, Button } from 'react-bootstrap'
 
 export default function App() {
   const [step, setStep] = useState<'start' | 'categories' | 'questions' | 'results' | 'report'>('start')
   const [selectedCategories, setSelectedCategories] = useState<CategoryGroup[]>([])
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [results, setResults] = useState<number[]>([])
+  const [results, setResults] = useState<Score[]>([])
   const [metadata, setMetadata] = useState<{ employees_range: string; volunteers_range: string } | null>(null)
 
   useEffect(() => {
     if (step === 'results' && metadata) {
-      createAssessment({ ...metadata, results }).catch(() => {})
+      createAssessment({ ...metadata, results: results.map(r => r.value) }).catch(() => {})
     }
   }, [step])
 
@@ -69,7 +69,7 @@ export default function App() {
   if (step === 'results') {
     return (
       <Container className="mt-4">
-        <ResultsView results={results || []} />
+        <ResultsView results={results || []} categories={selectedCategories} />
         <Button className="mt-3" onClick={() => setStep('start')}>Strona główna</Button>
       </Container>
     )
