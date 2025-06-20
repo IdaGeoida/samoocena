@@ -1,5 +1,6 @@
-from typing import Optional
+from typing import Optional, List
 from pydantic import BaseModel
+from datetime import datetime
 
 class ProcessBase(BaseModel):
     name: str
@@ -63,3 +64,21 @@ class QuestionRead(QuestionBase):
 class ScoreInput(BaseModel):
     process_id: int
     score: Optional[int] = None
+
+
+class AssessmentBase(BaseModel):
+    employees_range: str
+    volunteers_range: str
+    results: List[int]
+
+
+class AssessmentCreate(AssessmentBase):
+    pass
+
+
+class AssessmentRead(AssessmentBase):
+    id: int
+    created_at: datetime
+
+    class Config:
+        orm_mode = True

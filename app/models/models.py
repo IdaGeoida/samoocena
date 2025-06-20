@@ -1,5 +1,6 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, ForeignKeyConstraint
+from sqlalchemy import Column, Integer, String, ForeignKey, ForeignKeyConstraint, JSON, DateTime
 from sqlalchemy.orm import declarative_base
+from datetime import datetime
 
 Base = declarative_base()
 
@@ -34,3 +35,12 @@ class Question(Base):
         ForeignKeyConstraint(['category_id'], ['categories.id']),
         ForeignKeyConstraint(['category_id', 'subcategory_id'], ['subcategories.category_id', 'subcategories.id']),
     )
+
+
+class Assessment(Base):
+    __tablename__ = 'assessments'
+    id = Column(Integer, primary_key=True, index=True)
+    employees_range = Column(String, nullable=False)
+    volunteers_range = Column(String, nullable=False)
+    results = Column(JSON, nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow)

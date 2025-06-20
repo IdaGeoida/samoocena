@@ -128,3 +128,21 @@ def test_list_subcategories_by_category(client):
     data = resp.json()
     assert len(data) == 1
     assert data[0]['category_id'] == 1
+
+
+def test_create_and_list_assessments(client):
+    payload = {
+        'employees_range': '1-10',
+        'volunteers_range': '0-5',
+        'results': [1, 2, 3]
+    }
+    resp = client.post('/api/assessments/', json=payload)
+    assert resp.status_code == 200
+    data = resp.json()
+    assert data['id'] == 1
+    assert data['employees_range'] == '1-10'
+    resp = client.get('/api/assessments/')
+    assert resp.status_code == 200
+    data = resp.json()
+    assert len(data) == 1
+    assert data[0]['results'] == [1, 2, 3]

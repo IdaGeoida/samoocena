@@ -7,6 +7,7 @@ from app.api.scoring import router as scoring_router
 from app.api.categories import router as categories_router
 from app.api.subcategories import router as subcategories_router
 from app.api.questions import router as questions_router
+from app.api.assessments import router as assessments_router
 
 app = FastAPI()
 
@@ -20,3 +21,4 @@ app.include_router(scoring_router)
 app.include_router(categories_router)
 app.include_router(subcategories_router)
 app.include_router(questions_router)
+app.include_router(assessments_router)
