@@ -27,3 +27,14 @@ export interface Category {
 export interface CategoryGroup extends Category {
   ids: number[]
 }
+
+export interface AssessmentCreate {
+  employees_range: string
+  volunteers_range: string
+  results: number[]
+}
+
+export interface Assessment extends AssessmentCreate {
+  id: number
+  created_at: string
+}
