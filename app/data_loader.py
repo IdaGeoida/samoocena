@@ -8,9 +8,17 @@ from app.core.db import SessionLocal, engine
 from app.models.models import Base, Category, Subcategory, Question
 
 
+def _get_pk(model, item):
+    if model is Subcategory:
+        return (item['category_id'], item['id'])
+    if model is Question:
+        return (item['category_id'], item['subcategory_id'], item['id'])
+    return item['id']
+
+
 def _load_items(session, model, items: List[Dict[str, Any]]):
     for item in items:
-        obj = session.get(model, item['id'])
+        obj = session.get(model, _get_pk(model, item))
         if obj is None:
             session.add(model(**item))
         else:
