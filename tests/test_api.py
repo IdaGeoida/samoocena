@@ -105,10 +105,10 @@ def test_list_questions_by_category(client):
     client.post('/api/categories/', json={'id': 1, 'name': 'Cat1'})
     client.post('/api/categories/', json={'id': 2, 'name': 'Cat2'})
     client.post('/api/subcategories/', json={'id': 1, 'name': 'Sub1', 'description': 'd1', 'category_id': 1})
-    client.post('/api/subcategories/', json={'id': 1, 'name': 'Sub2', 'description': 'd2', 'category_id': 2})
+    client.post('/api/subcategories/', json={'id': 2, 'name': 'Sub2', 'description': 'd2', 'category_id': 2})
     client.post('/api/questions/', json={'id': 1, 'category_id': 1, 'subcategory_id': 1, 'description': 'Q1'})
     client.post('/api/questions/', json={'id': 2, 'category_id': 1, 'subcategory_id': 1, 'description': 'Q2'})
-    client.post('/api/questions/', json={'id': 1, 'category_id': 2, 'subcategory_id': 1, 'description': 'Q3'})
+    client.post('/api/questions/', json={'id': 3, 'category_id': 2, 'subcategory_id': 2, 'description': 'Q3'})
 
     resp = client.get('/api/questions/', params={'category_id': '1'})
     assert resp.status_code == 200
