@@ -1,5 +1,5 @@
 from typing import Optional, List
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from datetime import datetime
 
 class ProcessBase(BaseModel):
@@ -11,8 +11,7 @@ class ProcessCreate(ProcessBase):
 
 class ProcessRead(ProcessBase):
     id: int
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class CategoryBase(BaseModel):
@@ -25,8 +24,7 @@ class CategoryCreate(CategoryBase):
 
 
 class CategoryRead(CategoryBase):
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class SubcategoryBase(BaseModel):
@@ -41,8 +39,7 @@ class SubcategoryCreate(SubcategoryBase):
 
 
 class SubcategoryRead(SubcategoryBase):
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class QuestionBase(BaseModel):
@@ -60,8 +57,7 @@ class QuestionCreate(QuestionBase):
 
 
 class QuestionRead(QuestionBase):
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 class ScoreInput(BaseModel):
     process_id: int
@@ -81,6 +77,4 @@ class AssessmentCreate(AssessmentBase):
 class AssessmentRead(AssessmentBase):
     id: int
     created_at: datetime
-
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)

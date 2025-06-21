@@ -11,7 +11,7 @@ router = APIRouter(prefix="/api/questions", tags=["questions"])
 
 @router.post("/", response_model=QuestionRead)
 def create_question(question: QuestionCreate, db: Session = Depends(get_db)):
-    db_obj = Question(**question.dict())
+    db_obj = Question(**question.model_dump())
     db.add(db_obj)
     db.commit()
     db.refresh(db_obj)
