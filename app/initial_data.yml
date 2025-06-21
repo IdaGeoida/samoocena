@@ -28,28 +28,40 @@ questions:
     subcategory_id: 1
     description: Do you use two-factor authentication?
     detail: Additional info about MFA usage
+    scale_min_text: never used
+    scale_max_text: always used
   - id: 2
     category_id: 10
     subcategory_id: 1
     description: Do you maintain secure coding standards?
     detail: Guidelines for secure development
+    scale_min_text: not at all
+    scale_max_text: fully implemented
   - id: 1
     category_id: 10
     subcategory_id: 2
     description: Are servers regularly updated?
     detail: Patch management processes
+    scale_min_text: never
+    scale_max_text: on schedule
   - id: 2
     category_id: 10
     subcategory_id: 2
     description: Do you monitor network performance?
     detail: Tools used for monitoring
+    scale_min_text: never
+    scale_max_text: continuously
   - id: 1
     category_id: 20
     subcategory_id: 1
     description: Do you have a hiring process?
     detail: Outline of recruitment procedures
+    scale_min_text: none
+    scale_max_text: comprehensive
   - id: 1
     category_id: 30
     subcategory_id: 1
     description: Do you track departmental budgets?
     detail: Methods for monitoring budget spending
+    scale_min_text: not tracked
+    scale_max_text: thoroughly tracked
