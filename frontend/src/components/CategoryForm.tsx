@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { CategoryGroup, Category } from '../types'
 import { Form, Button, Row, Col, Card } from 'react-bootstrap'
+import { FaLaptop, FaUsers, FaMoneyBillAlt, FaQuestionCircle } from 'react-icons/fa'
 
 interface Props {
   onSubmit: (categories: CategoryGroup[]) => void
@@ -36,30 +37,39 @@ export default function CategoryForm({ onSubmit }: Props) {
     onSubmit(categories.filter(c => selected.includes(c.id)))
   }
 
+  const getIcon = (name: string) => {
+    switch (name) {
+      case 'IT':
+        return <FaLaptop className="category-icon" />
+      case 'HR':
+        return <FaUsers className="category-icon" />
+      case 'Finance':
+        return <FaMoneyBillAlt className="category-icon" />
+      default:
+        return <FaQuestionCircle className="category-icon" />
+    }
+  }
+
   return (
     <Form onSubmit={submit} className="w-100 text-center">
       <p className="mb-4">
         Wybierz kategorie, które chcesz zbadać dla swojej organizacji. Zalecane jest wybranie kategorii, które mają zastosowanie dla Twojej organizacji i które w niej realizujesz lub chcesz realizować.
       </p>
       <Row xs={1} sm={2} md={3} className="g-4 justify-content-center">
-        {categories.map((c, idx) => {
-          const color1 = `hsl(${(idx * 60) % 360}, 70%, 90%)`
-          const color2 = `hsl(${(idx * 60) % 360}, 70%, 80%)`
-          return (
-            <Col key={c.id}>
-              <Card
-                className={`category-card h-100 ${selected.includes(c.id) ? 'selected' : ''}`}
-                style={{ background: `linear-gradient(135deg, ${color1}, ${color2})` }}
-                onClick={() => toggle(c.id)}
-              >
-                {selected.includes(c.id) && <span className="check-icon">✓</span>}
-                <Card.Body className="d-flex justify-content-center align-items-center">
-                  <span className="category-label">{c.name}</span>
-                </Card.Body>
-              </Card>
-            </Col>
-          )
-        })}
+        {categories.map((c) => (
+          <Col key={c.id}>
+            <Card
+              className={`category-card h-100 ${selected.includes(c.id) ? 'selected' : ''}`}
+              onClick={() => toggle(c.id)}
+            >
+              {selected.includes(c.id) && <span className="check-icon">✓</span>}
+              <Card.Body className="d-flex flex-column justify-content-center align-items-center">
+                {getIcon(c.name)}
+                <span className="category-label">{c.name}</span>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
       </Row>
       <Button type="submit" className="mt-3" disabled={!selected.length}>Dalej</Button>
     </Form>
