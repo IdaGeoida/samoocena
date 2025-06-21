@@ -1,67 +1,243 @@
 categories:
-  - id: 10
-    name: IT
-  - id: 20
-    name: HR
-  - id: 30
-    name: Finance
+  - id: 1
+    name: "Opracowanie wizji i strategii"
+  - id: 2
+    name: "Rozwój i zarządzanie produktami i usługami"
+  - id: 3
+    name: "Marketing i sprzedaż produktów i usług"
+
 subcategories:
+  # Kategoria 1
   - id: 1
-    name: Security
-    description: Questions related to security practices
-    category_id: 10
+    name: "Określenie koncepcji biznesowej i długoterminowej wizji"
+    description: "Proces definiowania misji, wizji i wartości organizacji oraz długoterminowych celów społecznych."
+    category_id: 1
+
   - id: 2
-    name: Infrastructure
-    description: Servers and network operations
-    category_id: 10
+    name: "Opracowanie strategii biznesowej"
+    description: "Proces tworzenia i wdrażania strategii działania NGO, w tym określania celów oraz ścieżek ich realizacji."
+    category_id: 1
+
+  - id: 3
+    name: "Opracowywanie i mierzenie inicjatyw strategicznych"
+    description: "Proces definiowania, mierzenia i zarządzania inicjatywami wspierającymi realizację misji organizacji."
+    category_id: 1
+
+  - id: 4
+    name: "Opracowywanie i utrzymywanie modeli biznesowych"
+    description: "Proces tworzenia i aktualizacji modelu działania organizacji, uwzględniającego społeczny charakter działań."
+    category_id: 1
+
+  # Kategoria 2
   - id: 1
-    name: Recruitment
-    description: Hiring and onboarding topics
-    category_id: 20
+    name: "Zarządzanie programem rozwoju produktów/usług"
+    description: "Zarządzanie portfelem projektów i cyklem życia usług społecznych."
+    category_id: 2
+
+  - id: 2
+    name: "Generowanie i definiowanie nowych pomysłów na produkty/usługi"
+    description: "Proces generowania, definiowania i selekcji innowacyjnych pomysłów na projekty społeczne."
+    category_id: 2
+
+  - id: 3
+    name: "Opracowywanie produktów i usług"
+    description: "Proces projektowania, prototypowania i testowania nowych produktów i usług społecznych."
+    category_id: 2
+
+  # Kategoria 3
   - id: 1
-    name: Budgeting
-    description: Financial planning and cost control
-    category_id: 30
+    name: "Zrozumienie rynków, klientów i możliwości"
+    description: "Proces zbierania i analizowania informacji o potrzebach beneficjentów i rynku społecznego."
+    category_id: 3
+
+  - id: 2
+    name: "Opracowanie strategii marketingowej"
+    description: "Proces definiowania i zarządzania strategią komunikacji dostosowaną do NGO."
+    category_id: 3
+
+  - id: 3
+    name: "Opracowywanie planów marketingowych i zarządzanie nimi"
+    description: "Proces tworzenia, realizacji i monitorowania planów marketingowych organizacji."
+    category_id: 3
+
+  - id: 4
+    name: "Opracowanie strategii sprzedaży"
+    description: "Proces definiowania sposobów upowszechniania i dystrybucji usług NGO."
+    category_id: 3
+
 questions:
+  # --------------------------------------------------
+  # Kategoria 1 / Podkategoria 1
+  # --------------------------------------------------
   - id: 1
-    category_id: 10
+    category_id: 1
     subcategory_id: 1
-    description: Do you use two-factor authentication?
-    detail: Additional info about MFA usage
-    scale_min_text: never used
-    scale_max_text: always used
+    description: "Ocena środowiska zewnętrznego"
+    detail: "Czy systematycznie analizujemy siły makroekonomiczne, konkurencję, zmiany technologiczne oraz kwestie społeczne i ekologiczne, aby zrozumieć wpływ otoczenia zewnętrznego na naszą organizację?"
+    scale_min_text: "brak analizy otoczenia zewnętrznego"
+    scale_max_text: "systematyczna i kompleksowa analiza otoczenia, wykorzystywana w planowaniu"
+
   - id: 2
-    category_id: 10
+    category_id: 1
     subcategory_id: 1
-    description: Do you maintain secure coding standards?
-    detail: Guidelines for secure development
-    scale_min_text: not at all
-    scale_max_text: fully implemented
+    description: "Badanie potrzeb beneficjentów"
+    detail: "Czy prowadzimy badania potrzeb i oczekiwań naszych beneficjentów, aby dostosować ofertę usług?"
+    scale_min_text: "brak badań potrzeb beneficjentów"
+    scale_max_text: "regularne badania i wdrażanie wniosków z analiz"
+
+  - id: 3
+    category_id: 1
+    subcategory_id: 1
+    description: "Ocena środowiska wewnętrznego"
+    detail: "Czy analizujemy zasoby, kompetencje, kulturę i strukturę naszej organizacji, aby określić jej mocne i słabe strony?"
+    scale_min_text: "brak analizy wewnętrznych zasobów"
+    scale_max_text: "systematyczna analiza zasobów i kompetencji, wykorzystana w decyzjach"
+
+  - id: 4
+    category_id: 1
+    subcategory_id: 1
+    description: "Ustanowienie wizji strategicznej"
+    detail: "Czy mamy jasno sformułowaną wizję i misję organizacji, określającą cel społeczny i kierunki działań?"
+    scale_min_text: "brak zdefiniowanej wizji i misji"
+    scale_max_text: "wizja i misja są sprecyzowane, komunikowane i wykorzystywane na co dzień"
+
+  # --------------------------------------------------
+  # Kategoria 1 / Podkategoria 2
+  # --------------------------------------------------
   - id: 1
-    category_id: 10
+    category_id: 1
     subcategory_id: 2
-    description: Are servers regularly updated?
-    detail: Patch management processes
-    scale_min_text: never
-    scale_max_text: on schedule
+    description: "Opracowanie misji organizacji"
+    detail: "Czy mamy zdefiniowaną misję organizacji, która jasno komunikuje nasze wartości i cel społeczny?"
+    scale_min_text: "brak formalnej misji"
+    scale_max_text: "misja jest jasno sformułowana, znana i rozumiana przez zespół"
+
   - id: 2
-    category_id: 10
+    category_id: 1
     subcategory_id: 2
-    description: Do you monitor network performance?
-    detail: Tools used for monitoring
-    scale_min_text: never
-    scale_max_text: continuously
+    description: "Ocena opcji strategicznych"
+    detail: "Czy identyfikujemy i oceniamy różne opcje strategiczne pod kątem ryzyka i korzyści dla realizacji misji?"
+    scale_min_text: "brak analizy opcji strategicznych"
+    scale_max_text: "regularna ocena opcji z uwzględnieniem ryzyka i korzyści"
+
+  - id: 3
+    category_id: 1
+    subcategory_id: 2
+    description: "Tworzenie długoterminowej strategii"
+    detail: "Czy posiadamy długoterminowy plan strategiczny z jasno określonymi kamieniami milowymi?"
+    scale_min_text: "brak długoterminowego planu"
+    scale_max_text: "strategia długoterminowa jest udokumentowana i monitorowana"
+
+  - id: 4
+    category_id: 1
+    subcategory_id: 2
+    description: "Koordynacja strategii międzyfunkcyjnych"
+    detail: "Czy koordynujemy strategie wszystkich działów i projektów, aby działały spójnie na rzecz misji?"
+    scale_min_text: "strategie działów działają niezależnie"
+    scale_max_text: "wszystkie strategie są skoordynowane i wspierają cele organizacji"
+
+  - id: 5
+    category_id: 1
+    subcategory_id: 2
+    description: "Projektowanie struktury organizacyjnej"
+    detail: "Czy mamy zdefiniowaną strukturę organizacyjną i role wspierające realizację strategii?"
+    scale_min_text: "brak uporządkowanej struktury organizacyjnej"
+    scale_max_text: "struktura i role są jasno określone i dostosowane do potrzeb"
+
+  - id: 6
+    category_id: 1
+    subcategory_id: 2
+    description: "Ustalanie celów i mierników"
+    detail: "Czy definiujemy cele organizacyjne wraz z miernikami sukcesu i regularnie je monitorujemy?"
+    scale_min_text: "cele nieokreślone lub niemierzalne"
+    scale_max_text: "cele są jasno określone, mierzalne i monitorowane"
+
+  - id: 7
+    category_id: 1
+    subcategory_id: 2
+    description: "Strategia obsługi beneficjentów"
+    detail: "Czy mamy strategię obsługi beneficjentów, która zapewnia spójne doświadczenia na każdym etapie współpracy?"
+    scale_min_text: "brak spójnej strategii obsługi"
+    scale_max_text: "strategia obsługi jest wdrożona i regularnie weryfikowana"
+
+  - id: 8
+    category_id: 1
+    subcategory_id: 2
+    description: "Komunikacja strategii"
+    detail: "Czy regularnie komunikujemy strategię wewnętrznie i na zewnątrz do kluczowych interesariuszy?"
+    scale_min_text: "strategia niekomunikowana"
+    scale_max_text: "strategia jest systematycznie komunikowana i rozumiana przez interesariuszy"
+
+  # --------------------------------------------------
+  # Kategoria 1 / Podkategoria 3
+  # --------------------------------------------------
   - id: 1
-    category_id: 20
-    subcategory_id: 1
-    description: Do you have a hiring process?
-    detail: Outline of recruitment procedures
-    scale_min_text: none
-    scale_max_text: comprehensive
+    category_id: 1
+    subcategory_id: 3
+    description: "Tworzenie inicjatyw strategicznych"
+    detail: "Czy definiujemy projekty strategiczne, które wspierają realizację naszych kluczowych celów społecznych?"
+    scale_min_text: "brak inicjatyw strategicznych"
+    scale_max_text: "inicjatywy są tworzone, priorytetyzowane i monitorowane"
+
+  - id: 2
+    category_id: 1
+    subcategory_id: 3
+    description: "Ocena inicjatyw strategicznych"
+    detail: "Czy regularnie oceniamy postęp i efektywność zainicjowanych projektów strategicznych?"
+    scale_min_text: "brak oceny inicjatyw"
+    scale_max_text: "ocena jest cykliczna i wpływa na decyzje o kontynuacji"
+
+  - id: 3
+    category_id: 1
+    subcategory_id: 3
+    description: "Wybór inicjatyw strategicznych"
+    detail: "Czy selekcjonujemy najważniejsze inicjatywy na podstawie ich wpływu na misję?"
+    scale_min_text: "brak kryteriów wyboru"
+    scale_max_text: "inicjatywy są wybierane według transparentnych kryteriów wpływu"
+
+  - id: 4
+    category_id: 1
+    subcategory_id: 3
+    description: "Monitorowanie miar strategicznych"
+    detail: "Czy ustalamy i śledzimy kluczowe wskaźniki postępu naszych inicjatyw?"
+    scale_min_text: "brak miar postępu"
+    scale_max_text: "miary są ustalone, mierzone i raportowane"
+
+  - id: 5
+    category_id: 1
+    subcategory_id: 3
+    description: "Realizacja i adaptacja inicjatyw"
+    detail: "Czy wdrażamy inicjatywy zgodnie z planem i w razie potrzeby wprowadzamy korekty?"
+    scale_min_text: "brak monitoringu realizacji"
+    scale_max_text: "realizacja jest elastyczna i reaguje na zmiany warunków"
+
+  # --------------------------------------------------
+  # Kategoria 1 / Podkategoria 4
+  # --------------------------------------------------
   - id: 1
-    category_id: 30
-    subcategory_id: 1
-    description: Do you track departmental budgets?
-    detail: Methods for monitoring budget spending
-    scale_min_text: not tracked
-    scale_max_text: thoroughly tracked
+    category_id: 1
+    subcategory_id: 4
+    description: "Projektowanie modelu działania"
+    detail: "Czy opracowujemy model działania organizacji skoncentrowany na osiąganiu celów społecznych?"
+    scale_min_text: "brak formalnego modelu działania"
+    scale_max_text: "model działania jest wdrożony i aktualizowany na podstawie wyników"
+
+  - id: 2
+    category_id: 1
+    subcategory_id: 4
+    description: "Aktualizacja modelu działania"
+    detail: "Czy regularnie aktualizujemy model działania, aby odpowiadał zmieniającym się potrzebom społecznym?"
+    scale_min_text: "model nieaktualizowany"
+    scale_max_text: "model jest przeglądany i adaptowany cyklicznie"
+
+  - id: 3
+    category_id: 1
+    subcategory_id: 4
+    description: "Governance modelu działania"
+    detail: "Czy mamy ustalone mechanizmy zarządzania i nadzoru nad modelem działania organizacji?"
+    scale_min_text: "brak formalnych mechanizmów nadzoru"
+    scale_max_text: "mechanizmy są wdrożone i egzekwowane"
+
+  # --------------------------------------------------
+  # Kategoria 2 i 3 – analogicznie, z pytaniami formułowanymi jako pytania, skalami od „brak procesu” do „proces jest w pełni wdrożony i monitorowany”,
+  # oraz z zachowaniem resetu ID w każdej podkategorii.
