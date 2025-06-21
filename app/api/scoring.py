@@ -12,7 +12,7 @@ router = APIRouter(prefix="/api/scoring", tags=["scoring"])
 def score_processes(scores: List[ScoreInput], db: Session = Depends(get_db)):
     results = []
     for s in scores:
-        process = db.query(Process).get(s.process_id)
+        process = db.get(Process, s.process_id)
         if not process or s.score is None:
             continue
         results.append(s.score)

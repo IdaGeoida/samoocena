@@ -11,7 +11,7 @@ router = APIRouter(prefix="/api/categories", tags=["categories"])
 
 @router.post("/", response_model=CategoryRead)
 def create_category(category: CategoryCreate, db: Session = Depends(get_db)):
-    db_obj = Category(**category.dict())
+    db_obj = Category(**category.model_dump())
     db.add(db_obj)
     db.commit()
     db.refresh(db_obj)

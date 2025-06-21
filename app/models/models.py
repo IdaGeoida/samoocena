@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, ForeignKeyConstraint, JSON, DateTime
 from sqlalchemy.orm import declarative_base
-from datetime import datetime
+from datetime import datetime, UTC
 
 Base = declarative_base()
 
@@ -45,4 +45,4 @@ class Assessment(Base):
     employees_range = Column(String, nullable=False)
     volunteers_range = Column(String, nullable=False)
     results = Column(JSON, nullable=False)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=lambda: datetime.now(UTC))

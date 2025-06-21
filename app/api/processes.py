@@ -10,7 +10,7 @@ router = APIRouter(prefix="/api/processes", tags=["processes"])
 
 @router.post("/", response_model=ProcessRead)
 def create_process(process: ProcessCreate, db: Session = Depends(get_db)):
-    db_obj = Process(**process.dict())
+    db_obj = Process(**process.model_dump())
     db.add(db_obj)
     db.commit()
     db.refresh(db_obj)

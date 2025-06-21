@@ -11,7 +11,7 @@ router = APIRouter(prefix="/api/subcategories", tags=["subcategories"])
 
 @router.post("/", response_model=SubcategoryRead)
 def create_subcategory(subcat: SubcategoryCreate, db: Session = Depends(get_db)):
-    db_obj = Subcategory(**subcat.dict())
+    db_obj = Subcategory(**subcat.model_dump())
     db.add(db_obj)
     db.commit()
     db.refresh(db_obj)
