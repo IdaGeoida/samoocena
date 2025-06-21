@@ -25,7 +25,7 @@ export default function ResultsView({ results, categories }: Props) {
   }
 
   return (
-    <div>
+    <div className="w-100">
       <h4>
         Średni wynik całości:{' '}
         <span className={scoreClass(overall)}>{overall.toFixed(2)}/5.0</span>

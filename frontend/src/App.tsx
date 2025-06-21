@@ -30,7 +30,7 @@ export default function App() {
 
   if (step === 'start') {
     return (
-      <Container className="mt-4">
+      <Container className="mt-4 d-flex flex-column align-items-center">
         <MetadataForm onSubmit={(m) => { setMetadata(m); setStep('categories') }} />
         <Button variant="link" className="mt-3" onClick={() => setStep('report')}>Raporty</Button>
       </Container>
@@ -39,7 +39,7 @@ export default function App() {
 
   if (step === 'categories') {
     return (
-      <Container className="mt-4">
+      <Container className="mt-4 d-flex flex-column align-items-center">
         <CategoryForm
           onSubmit={(cats) => {
             setSelectedCategories(cats)
@@ -55,7 +55,7 @@ export default function App() {
   if (step === 'questions') {
     const category = selectedCategories[currentIndex]
     return (
-      <Container className="mt-4">
+      <Container className="mt-4 d-flex flex-column align-items-center">
         <CategoryQuestionsForm
           category={category}
           index={currentIndex}
@@ -75,7 +75,7 @@ export default function App() {
 
   if (step === 'results') {
     return (
-      <Container className="mt-4">
+      <Container className="mt-4 d-flex flex-column align-items-center">
         <ResultsView results={results || []} categories={selectedCategories} />
         <Button className="mt-3" onClick={() => setStep('intro')}>Strona główna</Button>
       </Container>
@@ -83,7 +83,7 @@ export default function App() {
   }
 
   return (
-    <Container className="mt-4">
+    <Container className="mt-4 d-flex flex-column align-items-center">
       <ReportView />
       <Button className="mt-3" onClick={() => setStep('intro')}>Powrót</Button>
     </Container>

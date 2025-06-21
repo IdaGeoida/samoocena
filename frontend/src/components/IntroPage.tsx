@@ -7,7 +7,7 @@ interface Props {
 
 export default function IntroPage({ onStart, onReport }: Props) {
   return (
-    <Container className="mt-4">
+    <Container className="mt-4 text-center d-flex flex-column align-items-center">
       <h1>Badanie samooceny</h1>
       <p>
         Niniejszy kwestionariusz pozwala ocenić stopień wdrożenia standardów

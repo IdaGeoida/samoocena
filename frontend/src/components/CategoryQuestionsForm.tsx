@@ -38,7 +38,7 @@ export default function CategoryQuestionsForm({ category, index, total, onSubmit
   })
 
   return (
-    <Form onSubmit={submit}>
+    <Form onSubmit={submit} className="w-100">
       <h3>{category.name}</h3>
       <ProgressBar now={((index + 1) / total) * 100} label={`${index + 1}/${total}`} className="mb-3" />
       {subcategories.map((sub) => (

@@ -15,7 +15,7 @@ export default function MetadataForm({ onSubmit }: Props) {
   const volOptions = ['0', '1-9', '10-49', '50+']
 
   return (
-    <Form onSubmit={submit} className="mt-4">
+    <Form onSubmit={submit} className="w-100">
       <Form.Group className="mb-3">
         <Form.Label>Liczba pracowników</Form.Label>
         <Controller
