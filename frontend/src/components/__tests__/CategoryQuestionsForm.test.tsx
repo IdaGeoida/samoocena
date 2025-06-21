@@ -21,30 +21,43 @@ vi.mock('../../api/subcategories', () => ({
 describe('CategoryQuestionsForm', () => {
   const category: CategoryGroup = { id: 1, name: 'Cat', ids: [1] }
 
-  it('loads and displays subcategory and question descriptions', async () => {
+  it('shows one subcategory at a time and allows navigation', async () => {
     render(<CategoryQuestionsForm category={category} index={0} total={1} onSubmit={() => {}} />)
+    const user = userEvent.setup()
 
-    // subcategory descriptions
+    // only first subcategory visible
     expect(await screen.findByText('subdesc1')).toBeInTheDocument()
-    expect(await screen.findByText('subdesc2')).toBeInTheDocument()
+    expect(screen.queryByText('subdesc2')).toBeNull()
 
-    // question details
-    expect(await screen.findByText('qd1')).toBeInTheDocument()
-    expect(await screen.findByText('qd2')).toBeInTheDocument()
+    // answer first subcategory and go next
+    const radios = await screen.findAllByRole('radio', { name: '1' })
+    await user.click(radios[0])
+    await user.click(screen.getByRole('button', { name: /Dalej/ }))
+
+    // second subcategory now visible
+    expect(await screen.findByText('subdesc2')).toBeInTheDocument()
   })
 
-  it('disables submit button until all questions answered', async () => {
+  it('disables submit button until questions in each subcategory answered', async () => {
     const submit = vi.fn()
     render(<CategoryQuestionsForm category={category} index={0} total={1} onSubmit={submit} />)
     const user = userEvent.setup()
-    const button = await screen.findByRole('button', { name: /Zakończ/ })
-    expect(button).toBeDisabled()
-    const radios = await screen.findAllByRole('radio', { name: '1' })
+
+    // first subcategory
+    const next = await screen.findByRole('button', { name: /Dalej/ })
+    expect(next).toBeDisabled()
+    let radios = await screen.findAllByRole('radio', { name: '1' })
     await user.click(radios[0])
-    expect(button).toBeDisabled()
-    await user.click(radios[1])
-    expect(button).toBeEnabled()
-    await user.click(button)
+    expect(next).toBeEnabled()
+    await user.click(next)
+
+    // second subcategory
+    const finish = await screen.findByRole('button', { name: /Zakończ/ })
+    expect(finish).toBeDisabled()
+    radios = await screen.findAllByRole('radio', { name: '1' })
+    await user.click(radios[0])
+    expect(finish).toBeEnabled()
+    await user.click(finish)
     expect(submit).toHaveBeenCalled()
   })
 })
