@@ -16,13 +16,19 @@ export default function CategoryQuestionsForm({ category, index, total, onSubmit
   const { register, handleSubmit } = useForm<Record<string, string>>({})
   const [questions, setQuestions] = useState<Question[]>([])
   const [subcategories, setSubcategories] = useState<Subcategory[]>([])
+  const [answers, setAnswers] = useState<Record<string, string>>({})
 
   useEffect(() => {
     getQuestions(category.ids).then(setQuestions)
     getSubcategories(category.ids).then(setSubcategories)
   }, [category.ids])
 
+  const allAnswered = questions.every(q => answers[`${q.category_id}_${q.subcategory_id}_${q.id}`])
+
   const submit = handleSubmit((data) => {
+    if (!allAnswered) {
+      return
+    }
     const scores: Score[] = questions.map((q) => {
       const val = data[`${q.category_id}_${q.subcategory_id}_${q.id}`]
       const num = val === 'NA' || val === undefined || val === '' ? 0 : Number(val)
@@ -70,6 +76,12 @@ export default function CategoryQuestionsForm({ category, index, total, onSubmit
                       label={String(n)}
                       value={n}
                       {...register(`${q.category_id}_${q.subcategory_id}_${q.id}`)}
+                      onChange={(e) =>
+                        setAnswers((prev) => ({
+                          ...prev,
+                          [`${q.category_id}_${q.subcategory_id}_${q.id}`]: (e.target as HTMLInputElement).value,
+                        }))
+                      }
                     />
                   ))}
                 </div>
@@ -80,13 +92,21 @@ export default function CategoryQuestionsForm({ category, index, total, onSubmit
                   value="NA"
                   className="text-secondary"
                   {...register(`${q.category_id}_${q.subcategory_id}_${q.id}`)}
+                  onChange={(e) =>
+                    setAnswers((prev) => ({
+                      ...prev,
+                      [`${q.category_id}_${q.subcategory_id}_${q.id}`]: (e.target as HTMLInputElement).value,
+                    }))
+                  }
                 />
               </div>
             </Form.Group>
           ))}
         </div>
       ))}
-      <Button type="submit">{index + 1 === total ? 'Zakończ' : 'Dalej'}</Button>
+      <Button type="submit" disabled={!allAnswered}>
+        {index + 1 === total ? 'Zakończ' : 'Dalej'}
+      </Button>
     </Form>
   )
 }
