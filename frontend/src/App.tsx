@@ -31,6 +31,7 @@ export default function App() {
   if (step === 'start') {
     return (
       <Container className="mt-4 d-flex flex-column align-items-center">
+        <h2 className="mb-3">Metryczka</h2>
         <MetadataForm onSubmit={(m) => { setMetadata(m); setStep('categories') }} />
         <Button variant="link" className="mt-3" onClick={() => setStep('report')}>Raporty</Button>
       </Container>
@@ -40,6 +41,7 @@ export default function App() {
   if (step === 'categories') {
     return (
       <Container className="mt-4 d-flex flex-column align-items-center">
+        <h2 className="mb-3">Kategorie</h2>
         <CategoryForm
           onSubmit={(cats) => {
             setSelectedCategories(cats)
@@ -76,6 +78,7 @@ export default function App() {
   if (step === 'results') {
     return (
       <Container className="mt-4 d-flex flex-column align-items-center">
+        <h2 className="mb-3">Wyniki</h2>
         <ResultsView results={results || []} categories={selectedCategories} />
         <Button className="mt-3" onClick={() => setStep('intro')}>Strona główna</Button>
       </Container>
