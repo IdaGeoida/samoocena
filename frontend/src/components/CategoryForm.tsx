@@ -1,16 +1,15 @@
-import React, { useEffect } from 'react'
-import { useForm, Controller } from 'react-hook-form'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { CategoryGroup, Category } from '../types'
-import { Form, Button } from 'react-bootstrap'
+import { Form, Button, Row, Col, Card } from 'react-bootstrap'
 
 interface Props {
   onSubmit: (categories: CategoryGroup[]) => void
 }
 
 export default function CategoryForm({ onSubmit }: Props) {
-  const { control, handleSubmit, watch } = useForm<Record<string, string>>({})
-  const [categories, setCategories] = React.useState<CategoryGroup[]>([])
+  const [categories, setCategories] = useState<CategoryGroup[]>([])
+  const [selected, setSelected] = useState<number[]>([])
 
   useEffect(() => {
     axios.get<Category[]>('/api/categories/').then(res => {
@@ -27,78 +26,42 @@ export default function CategoryForm({ onSubmit }: Props) {
     })
   }, [])
 
-  const submit = handleSubmit((data) => {
-    const result: CategoryGroup[] = []
-    categories.forEach((c) => {
-      const applies = data[`applies_${c.id}`] === 'yes'
-      const implemented = data[`impl_${c.id}`] === 'yes'
-      const want = data[`want_${c.id}`] === 'yes'
-      if (applies && (implemented || want)) {
-        result.push(c)
-      }
-    })
-    onSubmit(result)
-  })
+  const toggle = (id: number) => {
+    setSelected(prev => prev.includes(id) ? prev.filter(p => p !== id) : [...prev, id])
+  }
+
+  const submit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!selected.length) return
+    onSubmit(categories.filter(c => selected.includes(c.id)))
+  }
 
   return (
-    <Form onSubmit={submit}>
-      {categories.map((c) => {
-        const applies = watch(`applies_${c.id}`)
-        const impl = watch(`impl_${c.id}`)
-        return (
-          <div key={c.id} className="mb-3">
-            <h3>{c.name}</h3>
-            <Form.Label>Czy ma zastosowanie?</Form.Label>
-            <Controller
-              name={`applies_${c.id}`}
-              control={control}
-              defaultValue=""
-              render={({ field }) => (
-                <Form.Select {...field}>
-                  <option value="">-- wybierz --</option>
-                  <option value="yes">Tak</option>
-                  <option value="no">Nie</option>
-                </Form.Select>
-              )}
-            />
-            {applies === 'yes' && (
-              <>
-                <Form.Label className="mt-2">Czy organizacja realizuje u siebie te procesy?</Form.Label>
-                <Controller
-                  name={`impl_${c.id}`}
-                  control={control}
-                  defaultValue=""
-                  render={({ field }) => (
-                    <Form.Select {...field}>
-                      <option value="">-- wybierz --</option>
-                      <option value="yes">Tak</option>
-                      <option value="no">Nie</option>
-                    </Form.Select>
-                  )}
-                />
-                {impl === 'no' && (
-                  <>
-                    <Form.Label className="mt-2">Czy organizacja chciałaby je realizować?</Form.Label>
-                    <Controller
-                      name={`want_${c.id}`}
-                      control={control}
-                      defaultValue=""
-                      render={({ field }) => (
-                        <Form.Select {...field}>
-                          <option value="">-- wybierz --</option>
-                          <option value="yes">Tak</option>
-                          <option value="no">Nie</option>
-                        </Form.Select>
-                      )}
-                    />
-                  </>
-                )}
-              </>
-            )}
-          </div>
-        )
-      })}
-      <Button type="submit">Dalej</Button>
+    <Form onSubmit={submit} className="w-100 text-center">
+      <p className="mb-4">
+        Wybierz kategorie, które chcesz zbadać dla swojej organizacji. Zalecane jest wybranie kategorii, które mają zastosowanie dla Twojej organizacji i które w niej realizujesz lub chcesz realizować.
+      </p>
+      <Row xs={1} sm={2} md={3} className="g-4 justify-content-center">
+        {categories.map((c, idx) => {
+          const color1 = `hsl(${(idx * 60) % 360}, 70%, 90%)`
+          const color2 = `hsl(${(idx * 60) % 360}, 70%, 80%)`
+          return (
+            <Col key={c.id}>
+              <Card
+                className={`category-card h-100 ${selected.includes(c.id) ? 'selected' : ''}`}
+                style={{ background: `linear-gradient(135deg, ${color1}, ${color2})` }}
+                onClick={() => toggle(c.id)}
+              >
+                {selected.includes(c.id) && <span className="check-icon">✓</span>}
+                <Card.Body className="d-flex justify-content-center align-items-center">
+                  <span className="category-label">{c.name}</span>
+                </Card.Body>
+              </Card>
+            </Col>
+          )
+        })}
+      </Row>
+      <Button type="submit" className="mt-3" disabled={!selected.length}>Dalej</Button>
     </Form>
   )
 }

@@ -11,6 +11,7 @@ export default function ReportView() {
   }, [])
 
   return (
+    <div className="w-100">
     <Table striped bordered size="sm" className="w-auto">
       <thead>
         <tr><th>ID</th><th>Pracownicy</th><th>Wolontariusze</th><th>Wyniki</th></tr>
@@ -26,5 +27,6 @@ export default function ReportView() {
         ))}
       </tbody>
     </Table>
+    </div>
   )
 }
