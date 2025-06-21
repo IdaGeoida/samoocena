@@ -4,12 +4,13 @@ import CategoryForm from './components/CategoryForm'
 import ResultsView from './components/ResultsView'
 import MetadataForm from './components/MetadataForm'
 import ReportView from './components/ReportView'
+import IntroPage from './components/IntroPage'
 import { createAssessment } from './api/assessments'
 import { CategoryGroup, Score } from './types'
 import { Container, Button } from 'react-bootstrap'
 
 export default function App() {
-  const [step, setStep] = useState<'start' | 'categories' | 'questions' | 'results' | 'report'>('start')
+  const [step, setStep] = useState<'intro' | 'start' | 'categories' | 'questions' | 'results' | 'report'>('intro')
   const [selectedCategories, setSelectedCategories] = useState<CategoryGroup[]>([])
   const [currentIndex, setCurrentIndex] = useState(0)
   const [results, setResults] = useState<Score[]>([])
@@ -20,6 +21,12 @@ export default function App() {
       createAssessment({ ...metadata, results: results.map(r => r.value) }).catch(() => {})
     }
   }, [step])
+
+  if (step === 'intro') {
+    return (
+      <IntroPage onStart={() => setStep('start')} onReport={() => setStep('report')} />
+    )
+  }
 
   if (step === 'start') {
     return (
@@ -70,7 +77,7 @@ export default function App() {
     return (
       <Container className="mt-4">
         <ResultsView results={results || []} categories={selectedCategories} />
-        <Button className="mt-3" onClick={() => setStep('start')}>Strona główna</Button>
+        <Button className="mt-3" onClick={() => setStep('intro')}>Strona główna</Button>
       </Container>
     )
   }
@@ -78,7 +85,7 @@ export default function App() {
   return (
     <Container className="mt-4">
       <ReportView />
-      <Button className="mt-3" onClick={() => setStep('start')}>Powrót</Button>
+      <Button className="mt-3" onClick={() => setStep('intro')}>Powrót</Button>
     </Container>
   )
 }
