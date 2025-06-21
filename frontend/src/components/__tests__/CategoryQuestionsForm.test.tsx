@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { vi, describe, it, expect } from 'vitest'
 import CategoryQuestionsForm from '../CategoryQuestionsForm'
 import { CategoryGroup } from '../../types'
@@ -30,5 +31,20 @@ describe('CategoryQuestionsForm', () => {
     // question details
     expect(await screen.findByText('qd1')).toBeInTheDocument()
     expect(await screen.findByText('qd2')).toBeInTheDocument()
+  })
+
+  it('disables submit button until all questions answered', async () => {
+    const submit = vi.fn()
+    render(<CategoryQuestionsForm category={category} index={0} total={1} onSubmit={submit} />)
+    const user = userEvent.setup()
+    const button = await screen.findByRole('button', { name: /Zakończ/ })
+    expect(button).toBeDisabled()
+    const radios = await screen.findAllByRole('radio', { name: '1' })
+    await user.click(radios[0])
+    expect(button).toBeDisabled()
+    await user.click(radios[1])
+    expect(button).toBeEnabled()
+    await user.click(button)
+    expect(submit).toHaveBeenCalled()
   })
 })
