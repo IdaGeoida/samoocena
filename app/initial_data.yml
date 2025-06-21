@@ -5,6 +5,15 @@ categories:
     name: "Rozwój i zarządzanie produktami i usługami"
   - id: 3
     name: "Marketing i sprzedaż produktów i usług"
+  - id: 4
+    name: "Zarządzanie łańcuchem dostaw produktów fizycznych"
+  - id: 5
+    name: "Dostarczanie usług"
+  - id: 6
+    name: "Zarządzanie obsługą klienta"
+  - id: 7
+    name: "Rozwój i zarządzanie kapitałem ludzkim"
+
 
 subcategories:
   # Kategoria 1
@@ -64,6 +73,86 @@ subcategories:
     name: "Opracowanie strategii sprzedaży"
     description: "Proces definiowania sposobów upowszechniania i dystrybucji usług NGO."
     category_id: 3
+
+  # Kategoria 4
+  - id: 1
+    name: "Planowanie i dostosowywanie zasobów łańcucha dostaw"
+    description: "Proces planowania i dostosowywania zasobów w łańcuchu dostaw produktów fizycznych, obejmujący prognozowanie popytu i harmonogramowanie dystrybucji."
+    category_id: 4
+  - id: 2
+    name: "Zamawianie materiałów i usług"
+    description: "Proces zamawiania materiałów i usług, w tym wybór dostawców, negocjacje umów oraz zarządzanie dostawami."
+    category_id: 4
+  - id: 3
+    name: "Produkcja, montaż i testowanie produktu"
+    description: "Procesy związane z produkcją, montażem i testowaniem produktów fizycznych przed ich dostawą."
+    category_id: 4
+  - id: 4
+    name: "Zarządzanie logistyką i magazynowaniem"
+    description: "Procesy zarządzania przepływem materiałów w magazynach i logistyki wyjściowej."
+    category_id: 4
+
+  # Kategoria 5
+  - id: 1
+    name: "Ustanowienie zarządzania i strategii świadczenia usług"
+    description: "Proces definiowania governance i strategii świadczenia usług, uwzględniający specyfikę relacji z beneficjentami i darczyńcami."
+    category_id: 5
+  - id: 2
+    name: "Zarządzanie zasobami świadczenia usług"
+    description: "Proces identyfikacji, planowania i alokacji zasobów niezbędnych do świadczenia usług."
+    category_id: 5
+  - id: 3
+    name: "Dostarczenie usługi do klienta"
+    description: "Proces inicjowania, realizowania i formalnego zamykania świadczenia usług dla beneficjentów."
+    category_id: 5
+
+  # Kategoria 6
+  - id: 1
+    name: "Opracowanie strategii obsługi klienta"
+    description: "Proces definiowania wymagań, doświadczeń, kanałów i procedur obsługi klienta dla beneficjentów, darczyńców i wolontariuszy."
+    category_id: 6
+
+  - id: 2
+    name: "Planowanie i zarządzanie kontaktami z obsługą klienta"
+    description: "Proces planowania zasobów i zarządzania interakcjami w ramach obsługi klienta."
+    category_id: 6
+
+  # Kategoria 7
+  - id: 1
+    name: "Opracowywanie i zarządzanie planowaniem, polityką i strategiami w zakresie zasobów ludzkich"
+    description: "Proces definiowania strategii personalnej i modeli kompetencji wspierających cele NGO."
+    category_id: 7
+
+  - id: 2
+    name: "Rekrutacja, pozyskiwanie i selekcja pracowników"
+    description: "Proces pozyskiwania, selekcji i zarządzania informacjami o kandydatach."
+    category_id: 7
+
+  - id: 3
+    name: "Zarządzanie wdrażaniem, szkoleniem i rozwojem pracowników"
+    description: "Proces orientacji, szkolenia i rozwoju kompetencji pracowników i wolontariuszy."
+    category_id: 7
+
+  - id: 4
+    name: "Zarządzanie relacjami z pracownikami"
+    description: "Proces zarządzania relacjami pracowniczymi, skargami i partnerstwami."
+    category_id: 7
+
+  - id: 5
+    name: "Nagradzanie i zatrzymywanie pracowników"
+    description: "Procesy motywacyjne, zarządzanie benefitami i satysfakcją pracowników."
+    category_id: 7
+
+  - id: 6
+    name: "Przenoszenie pracowników na inne stanowiska i emerytury"
+    description: "Proces zarządzania awansami, degradacjami, separacją i przejściem na emeryturę."
+    category_id: 7
+
+  - id: 7
+    name: "Zarządzanie informacjami i analizami dotyczącymi pracowników"
+    description: "Proces zarządzania danymi pracowników, raportowania i analiz HR."
+    category_id: 7
+
 
 questions:
   # --------------------------------------------------
@@ -239,5 +328,716 @@ questions:
     scale_max_text: "mechanizmy są wdrożone i egzekwowane"
 
   # --------------------------------------------------
-  # Kategoria 2 i 3 – analogicznie, z pytaniami formułowanymi jako pytania, skalami od „brak procesu” do „proces jest w pełni wdrożony i monitorowany”,
-  # oraz z zachowaniem resetu ID w każdej podkategorii.
+  # Kategoria 2 / Podkategoria 1: Zarządzanie programem rozwoju produktów/usług
+  # --------------------------------------------------
+  - id: 1
+    category_id: 2
+    subcategory_id: 1
+    description: "Zarządzanie portfelem produktów i usług"
+    detail: "Czy zarządzamy portfelem projektów społecznych, uwzględniając potrzeby beneficjentów i luki w obecnej ofercie?"
+    scale_min_text: "nie zarządzamy portfelem projektów"
+    scale_max_text: "portfel projektów jest systematycznie przeglądany i aktualizowany"
+
+  - id: 2
+    category_id: 2
+    subcategory_id: 1
+    description: "Zarządzanie cyklem życia produktów i usług"
+    detail: "Czy zarządzamy cyklem życia naszych usług od koncepcji, przez wdrożenie, aż po ewaluację i zamknięcie?"
+    scale_min_text: "brak formalnego zarządzania cyklem życia"
+    scale_max_text: "cykl życia usług jest w pełni zarządzany i monitorowany"
+
+  - id: 3
+    category_id: 2
+    subcategory_id: 1
+    description: "Zarządzanie patentami, prawami autorskimi i wymogami regulacyjnymi"
+    detail: "Czy zapewniamy ochronę prawną i zgodność regulacyjną naszych materiałów i treści projektowych?"
+    scale_min_text: "brak zarządzania prawami autorskimi i regulacjami"
+    scale_max_text: "ochrona prawna i zgodność regulacyjna są w pełni zapewnione"
+
+  - id: 4
+    category_id: 2
+    subcategory_id: 1
+    description: "Zarządzanie głównymi danymi produktów i usług"
+    detail: "Czy utrzymujemy i aktualizujemy kluczowe dane dotyczące naszych usług i projektów?"
+    scale_min_text: "brak uporządkowanych danych projektowych"
+    scale_max_text: "dane są systematycznie zarządzane i weryfikowane"
+
+  # --------------------------------------------------
+  # Kategoria 2 / Podkategoria 2: Generowanie i definiowanie nowych pomysłów na produkty/usługi
+  # --------------------------------------------------
+  - id: 1
+    category_id: 2
+    subcategory_id: 2
+    description: "Przeprowadzanie badań odkrywczych"
+    detail: "Czy realizujemy badania B+R w celu odkrywania nowych możliwości projektowych?"
+    scale_min_text: "nie prowadzimy badań B+R"
+    scale_max_text: "badania są systematyczne i wpływają na rozwój oferty"
+
+  - id: 2
+    category_id: 2
+    subcategory_id: 2
+    description: "Generowanie koncepcji nowych produktów/usług"
+    detail: "Czy generujemy i definiujemy nowe pomysły na usługi społeczne zgodne z potrzebami beneficjentów?"
+    scale_min_text: "brak generowania nowych koncepcji"
+    scale_max_text: "koncepcje są dokumentowane i regularnie weryfikowane"
+
+  - id: 3
+    category_id: 2
+    subcategory_id: 2
+    description: "Definiowanie wymagań dotyczących rozwoju produktów/usług"
+    detail: "Czy jasno definiujemy wymagania dla nowych lub zmienianych usług na podstawie analiz i badań?"
+    scale_min_text: "wymagania nieokreślone"
+    scale_max_text: "wymagania są kompletne, mierzalne i aktualizowane"
+
+  # --------------------------------------------------
+  # Kategoria 2 / Podkategoria 3: Opracowywanie produktów i usług
+  # --------------------------------------------------
+  - id: 1
+    category_id: 2
+    subcategory_id: 3
+    description: "Projektowanie i prototypowanie produktów i usług"
+    detail: "Czy projektujemy i prototypujemy nasze usługi, tworząc wersje testowe dla beneficjentów?"
+    scale_min_text: "brak prototypowania"
+    scale_max_text: "protokoły i prototypy są tworzone i oceniane"
+
+  - id: 2
+    category_id: 2
+    subcategory_id: 3
+    description: "Testowanie rynku dla nowych lub zmienionych produktów i usług"
+    detail: "Czy testujemy zapotrzebowanie na nowe lub zmienione projekty społeczne wśród grup docelowych?"
+    scale_min_text: "nie testujemy popytu"
+    scale_max_text: "testy są regularnie prowadzone, a wnioski wdrażane"
+
+  - id: 3
+    category_id: 2
+    subcategory_id: 3
+    description: "Przygotowanie do produkcji/dostawy usług"
+    detail: "Czy przygotowujemy plany i procedury niezbędne do realizacji i dostawy usług?"
+    scale_min_text: "brak przygotowania operacyjnego"
+    scale_max_text: "plany realizacji i dostawy są kompletne i wdrożone"
+
+  # --------------------------------------------------
+  # Kategoria 3 / Podkategoria 1: Zrozumienie rynków, klientów i możliwości
+  # --------------------------------------------------
+  - id: 1
+    category_id: 3
+    subcategory_id: 1
+    description: "Przeprowadzanie analizy klientów i rynku"
+    detail: "Czy analizujemy potrzeby beneficjentów i dostępność rozwiązań społecznych na rynku?"
+    scale_min_text: "brak analizy rynku i beneficjentów"
+    scale_max_text: "analiza jest systematyczna i wpływa na decyzje"
+
+  - id: 2
+    category_id: 3
+    subcategory_id: 1
+    description: "Ocena i priorytetyzacja możliwości rynkowych"
+    detail: "Czy oceniamy i priorytetyzujemy społecznie istotne możliwości wsparcia, uwzględniając zasoby i partnerstwa?"
+    scale_min_text: "brak priorytetyzacji możliwości"
+    scale_max_text: "możliwości są oceniane i priorytetyzowane na podstawie kryteriów wpływu"
+
+  # --------------------------------------------------
+  # Kategoria 3 / Podkategoria 2: Opracowanie strategii marketingowej
+  # --------------------------------------------------
+  - id: 1
+    category_id: 3
+    subcategory_id: 2
+    description: "Definiowanie i zarządzanie strategią kanału"
+    detail: "Czy definiujemy i zarządzamy kanałami komunikacji i dystrybucji usług NGO?"
+    scale_min_text: "brak strategii kanału"
+    scale_max_text: "kanały są zdefiniowane, monitorowane i optymalizowane"
+
+  - id: 2
+    category_id: 3
+    subcategory_id: 2
+    description: "Analiza i zarządzanie wydajnością kanału"
+    detail: "Czy analizujemy efektywność kanałów komunikacji i dystrybucji oraz wprowadzamy usprawnienia?"
+    scale_min_text: "nie monitorujemy kanałów"
+    scale_max_text: "wydajność kanałów jest mierzona i usprawniana"
+
+  - id: 3
+    category_id: 3
+    subcategory_id: 2
+    description: "Opracowanie strategii komunikacji marketingowej"
+    detail: "Czy opracowujemy strategię komunikacji, definiując kluczowe przekazy i grupy odbiorców?"
+    scale_min_text: "brak spójnej strategii komunikacji"
+    scale_max_text: "strategia jest wdrożona i oceniana pod kątem skuteczności"
+
+  - id: 4
+    category_id: 3
+    subcategory_id: 2
+    description: "Projektowanie i zarządzanie programem lojalnościowym dla klientów"
+    detail: "Czy tworzymy programy zaangażowania i lojalności dla beneficjentów i darczyńców?"
+    scale_min_text: "brak programów zaangażowania"
+    scale_max_text: "programy są wdrożone i przynoszą mierzalne efekty"
+
+  # --------------------------------------------------
+  # Kategoria 3 / Podkategoria 3: Opracowywanie planów marketingowych i zarządzanie nimi
+  # --------------------------------------------------
+  - id: 1
+    category_id: 3
+    subcategory_id: 3
+    description: "Ustalanie celów, zadań i mierników dla produktów/usług według kanałów/segmentów"
+    detail: "Czy definiujemy cele i mierniki dla naszych usług zgodnie z kanałami i segmentami beneficjentów?"
+    scale_min_text: "brak mierzalnych celów marketingowych"
+    scale_max_text: "cele i mierniki są jasno określone i monitorowane"
+
+  - id: 2
+    category_id: 3
+    subcategory_id: 3
+    description: "Ustalanie budżetów marketingowych"
+    detail: "Czy planujemy i zatwierdzamy budżety na działania promocyjne i komunikacyjne?"
+    scale_min_text: "brak budżetu na marketing"
+    scale_max_text: "budżety są zatwierdzone i wykorzystywane efektywnie"
+
+  - id: 3
+    category_id: 3
+    subcategory_id: 3
+    description: "Opracowywanie działań promocyjnych i zarządzanie nimi"
+    detail: "Czy opracowujemy i realizujemy kampanie promocyjne wspierające cele organizacji?"
+    scale_min_text: "brak działań promocyjnych"
+    scale_max_text: "kampanie są planowane, wdrażane i oceniane"
+
+  - id: 4
+    category_id: 3
+    subcategory_id: 3
+    description: "Analizowanie i reagowanie na spostrzeżenia klientów"
+    detail: "Czy zbieramy opinie beneficjentów i dostosowujemy do nich działania marketingowe?"
+    scale_min_text: "nie uwzględniamy opinii beneficjentów"
+    scale_max_text: "opinie są analizowane i wpływają na decyzje"
+
+  - id: 5
+    category_id: 3
+    subcategory_id: 3
+    description: "Opracowanie strategii wejścia na rynek"
+    detail: "Czy tworzymy plan wprowadzenia nowych usług do społeczności, uwzględniając budowanie zaufania?"
+    scale_min_text: "brak strategii wejścia"
+    scale_max_text: "plan wejścia jest wdrożony i weryfikowany"
+
+  - id: 6
+    category_id: 3
+    subcategory_id: 3
+    description: "Zarządzanie materiałami marketingowymi produktu"
+    detail: "Czy zarządzamy materiałami informacyjnymi i promocyjnymi, zapewniając ich aktualność i spójność?"
+    scale_min_text: "brak zarządzania materiałami marketingowymi"
+    scale_max_text: "materiały są aktualizowane i spójne z przekazem"
+
+  # --------------------------------------------------
+  # Kategoria 3 / Podkategoria 4: Opracowanie strategii sprzedaży
+  # --------------------------------------------------
+  - id: 1
+    category_id: 3
+    subcategory_id: 4
+    description: "Ustanowienie celów i mierników sprzedaży"
+    detail: "Czy definiujemy cele społeczne i mierniki wpływu zamiast tradycyjnych celów sprzedażowych?"
+    scale_min_text: "brak celów sprzedażowych i mierników wpływu"
+    scale_max_text: "cele wpływu są określone i monitorowane"
+
+  - id: 2
+    category_id: 3
+    subcategory_id: 4
+    description: "Ustanowienie środków zarządzania klientami"
+    detail: "Czy monitorujemy satysfakcję i zaangażowanie beneficjentów oraz darczyńców?"
+    scale_min_text: "brak wskaźników satysfakcji i zaangażowania"
+    scale_max_text: "wskaźniki są zbierane i wykorzystywane do optymalizacji działań"
+
+  - id: 1
+    category_id: 5
+    subcategory_id: 1
+    description: "Ustanowienie zarządzania świadczeniem usług"
+    detail: "Czy przystosowaliśmy governance świadczenia usług, z procedurami eskalacji, pomiarem KPI i kanałami zbierania feedbacku od beneficjentów, darczyńców i wolontariuszy?"
+    scale_min_text: "brak formalnego systemu zarządzania świadczeniem usług"
+    scale_max_text: "governance jest wdrożone, z regularnym pomiarem KPI i mechanizmami feedbacku"
+
+  - id: 2
+    category_id: 5
+    subcategory_id: 1
+    description: "Opracowanie strategii świadczenia usług"
+    detail: "Czy opracowaliśmy strategię świadczenia usług, definiując cele społeczne, poziomy obsługi i zasoby potrzebne do realizacji projektów?"
+    scale_min_text: "brak strategii świadczenia usług"
+    scale_max_text: "strategia jest dokumentowana, komunikowana i monitorowana"
+
+  # Kategoria 5 / Podkategoria 2
+  - id: 1
+    category_id: 5
+    subcategory_id: 2
+    description: "Zarządzanie zapotrzebowaniem na zasoby do świadczenia usług"
+    detail: "Czy identyfikujemy zapotrzebowanie na zasoby do świadczenia usług i planujemy je zgodnie z potrzebami beneficjentów?"
+    scale_min_text: "nie identyfikujemy zapotrzebowania na zasoby"
+    scale_max_text: "zapotrzebowanie jest systematycznie identyfikowane i planowane"
+
+  - id: 2
+    category_id: 5
+    subcategory_id: 2
+    description: "Tworzenie planu zasobów i zarządzanie nim"
+    detail: "Czy opracowujemy plany zasobów oraz monitorujemy i aktualizujemy je w trakcie realizacji usług?"
+    scale_min_text: "brak planu zasobów"
+    scale_max_text: "plany są aktualizowane i wykorzystywane w zarządzaniu"
+
+  - id: 3
+    category_id: 5
+    subcategory_id: 2
+    description: "Włączanie zasobów dostarczania usług"
+    detail: "Czy skutecznie integrujemy i alokujemy zasoby do realizacji usług zgodnie z planem?"
+    scale_min_text: "zasoby są przydzielane ad hoc"
+    scale_max_text: "zasoby są alokowane zgodnie z planem i optymalnie wykorzystywane"
+
+  # Kategoria 5 / Podkategoria 3
+  - id: 1
+    category_id: 5
+    subcategory_id: 3
+    description: "Inicjowanie świadczenia usługi"
+    detail: "Czy stosujemy formalne procedury inicjowania świadczenia usług dla beneficjentów?"
+    scale_min_text: "inicjowanie nie jest ustrukturyzowane"
+    scale_max_text: "procedury inicjowania są udokumentowane i stosowane"
+
+  - id: 2
+    category_id: 5
+    subcategory_id: 3
+    description: "Realizacja usługi"
+    detail: "Czy monitorujemy realizację usług zgodnie z założeniami strategii i standardami jakości?"
+    scale_min_text: "brak monitoringu realizacji"
+    scale_max_text: "realizacja jest monitorowana, raportowana i korygowana"
+
+  - id: 3
+    category_id: 5
+    subcategory_id: 3
+    description: "Zakończenie świadczenia usługi"
+    detail: "Czy formalnie zamykamy proces świadczenia usług, przeprowadzając ewaluację i zbierając feedback od beneficjentów?"
+    scale_min_text: "brak formalnego zakończenia"
+    scale_max_text: "zakończenie obejmuje ewaluację, raportowanie wyników i feedback"
+
+  # --------------------------------------------------
+  # Kategoria 6 / Podkategoria 1
+  # --------------------------------------------------
+  - id: 1
+    category_id: 6
+    subcategory_id: 1
+    description: "Określenie wymagań dotyczących obsługi klienta"
+    detail: "Czy określamy wymagania dotyczące obsługi klienta w całej organizacji, uwzględniając beneficjentów, darczyńców i wolontariuszy?"
+    scale_min_text: "brak formalnych wymagań obsługi klienta"
+    scale_max_text: "wymagania są zdefiniowane, dokumentowane i wykorzystywane w działaniach"
+
+  - id: 2
+    category_id: 6
+    subcategory_id: 1
+    description: "Definiowanie doświadczeń związanych z obsługą klienta"
+    detail: "Czy definiujemy pożądane doświadczenia beneficjentów na każdym etapie świadczenia usług?"
+    scale_min_text: "brak formalnej definicji doświadczeń klienta"
+    scale_max_text: "doświadczenia są opisane, mierzone i optymalizowane"
+
+  - id: 3
+    category_id: 6
+    subcategory_id: 1
+    description: "Definiowanie i zarządzanie strategią kanałów obsługi klienta"
+    detail: "Czy definiujemy kanały obsługi klienta i regularnie oceniamy ich efektywność?"
+    scale_min_text: "brak strategii kanałów obsługi"
+    scale_max_text: "kanały są zdefiniowane, monitorowane i optymalizowane"
+
+  - id: 4
+    category_id: 6
+    subcategory_id: 1
+    description: "Definiowanie zasad i procedur obsługi klienta"
+    detail: "Czy mamy spisane zasady i procedury obsługi, zapewniające jednolity standard kontaktu?"
+    scale_min_text: "brak udokumentowanych procedur obsługi"
+    scale_max_text: "procedury są dokumentowane, wdrażane i egzekwowane"
+
+  - id: 5
+    category_id: 6
+    subcategory_id: 1
+    description: "Ustalenie docelowego poziomu obsługi"
+    detail: "Czy definiujemy docelowe poziomy obsługi dla różnych grup beneficjentów i darczyńców?"
+    scale_min_text: "brak celów poziomu obsługi"
+    scale_max_text: "poziomy są określone, monitorowane i korygowane"
+
+  - id: 6
+    category_id: 6
+    subcategory_id: 1
+    description: "Określenie roszczeń gwarancyjnych"
+    detail: "Czy definiujemy i komunikujemy zasady roszczeń gwarancyjnych na usługi społeczne?"
+    scale_min_text: "brak zasad roszczeń"
+    scale_max_text: "zasady są opisane i udostępnione beneficjentom"
+
+  - id: 7
+    category_id: 6
+    subcategory_id: 1
+    description: "Opracowywanie strategii wycofywania produktów z rynku"
+    detail: "Czy opracowujemy procedury wycofywania usług lub projektów, gdy wymagają ich okoliczności?"
+    scale_min_text: "brak procedur wycofywania"
+    scale_max_text: "procedury są wdrożone i testowane"
+
+  # --------------------------------------------------
+  # Kategoria 6 / Podkategoria 2
+  # --------------------------------------------------
+  - id: 1
+    category_id: 6
+    subcategory_id: 2
+    description: "Planowanie i zarządzanie pracownikami obsługi klienta"
+    detail: "Czy planujemy zasoby ludzkie do obsługi klienta i monitorujemy ich wydajność?"
+    scale_min_text: "brak planowania zasobów obsługi"
+    scale_max_text: "zasoby są planowane, alokowane i oceniane"
+
+  - id: 2
+    category_id: 6
+    subcategory_id: 2
+    description: "Zarządzanie problemami, prośbami i zapytaniami"
+    detail: "Czy mamy system rejestracji i obsługi zgłoszeń beneficjentów i darczyńców?"
+    scale_min_text: "brak systemu zarządzania zgłoszeniami"
+    scale_max_text: "zgłoszenia są rejestrowane, priorytetyzowane i zamykane"
+
+  - id: 3
+    category_id: 6
+    subcategory_id: 2
+    description: "Zarządzanie skargami klientów"
+    detail: "Czy formalnie przyjmujemy i rozwiązujemy skargi beneficjentów według procedur?"
+    scale_min_text: "brak procesu obsługi skarg"
+    scale_max_text: "skargi są rozpatrywane, analizowane i wykorzystywane do usprawnień"
+
+  - id: 4
+    category_id: 6
+    subcategory_id: 2
+    description: "Zgłaszanie incydentów i zagrożeń organom regulacyjnym"
+    detail: "Czy procedury przewidują raportowanie incydentów i zagrożeń odpowiednim organom?"
+    scale_min_text: "brak procedur raportowania incydentów"
+    scale_max_text: "incydenty są zgłaszane i monitorowane zgodnie z przepisami"
+
+  # --------------------------------------------------
+  # Kategoria 7 / Podkategoria 1
+  # --------------------------------------------------
+  - id: 1
+    category_id: 7
+    subcategory_id: 1
+    description: "Opracowywanie strategii w zakresie zasobów ludzkich"
+    detail: "Czy definiujemy strategię HR wspierającą cele społeczne i rozwój organizacji?"
+    scale_min_text: "brak strategii HR"
+    scale_max_text: "strategia HR jest dokumentowana, wdrażana i monitorowana"
+
+  - id: 2
+    category_id: 7
+    subcategory_id: 1
+    description: "Opracowywanie i wdrażanie polityk dotyczących pracowników"
+    detail: "Czy mamy polityki personalne regulujące zatrudnienie, rozwój i zakończenie współpracy?"
+    scale_min_text: "brak formalnych polityk personalnych"
+    scale_max_text: "polityki są wdrożone, komunikowane i egzekwowane"
+
+  - id: 3
+    category_id: 7
+    subcategory_id: 1
+    description: "Monitorowanie i aktualizowanie strategii HR"
+    detail: "Czy regularnie przeglądamy i aktualizujemy strategię HR oraz plany działań?"
+    scale_min_text: "strategia HR nieaktualizowana"
+    scale_max_text: "strategia jest przeglądana i dostosowywana do zmian"
+
+  - id: 4
+    category_id: 7
+    subcategory_id: 1
+    description: "Opracowywanie modeli zarządzania kompetencjami"
+    detail: "Czy definiujemy i utrzymujemy modele kompetencji potrzebne do realizacji misji?"
+    scale_min_text: "brak modeli kompetencyjnych"
+    scale_max_text: "modele są wdrożone i wykorzystywane w rozwoju pracowników"
+
+  # --------------------------------------------------
+  # Kategoria 7 / Podkategoria 2
+  # --------------------------------------------------
+  - id: 1
+    category_id: 7
+    subcategory_id: 2
+    description: "Zarządzanie zapotrzebowaniem na pracowników"
+    detail: "Czy analizujemy i planujemy potrzeby kadrowe zgodnie z projektami NGO?"
+    scale_min_text: "brak analizy zapotrzebowania"
+    scale_max_text: "zapotrzebowanie jest planowane i monitorowane"
+
+  - id: 2
+    category_id: 7
+    subcategory_id: 2
+    description: "Rekrutacja i pozyskiwanie kandydatów"
+    detail: "Czy prowadzimy proces pozyskiwania kandydatów zgodnie z wymaganiami projektów?"
+    scale_min_text: "brak ustrukturyzowanego naboru"
+    scale_max_text: "nabór jest planowany, prowadzony i oceniany"
+
+  - id: 3
+    category_id: 7
+    subcategory_id: 2
+    description: "Sprawdzanie i selekcja kandydatów"
+    detail: "Czy stosujemy kryteria i narzędzia oceny kandydatów przed zatrudnieniem?"
+    scale_min_text: "brak procesu selekcji"
+    scale_max_text: "selekcja jest systematyczna i transparentna"
+
+  - id: 4
+    category_id: 7
+    subcategory_id: 2
+    description: "Zarządzanie nowym zatrudnieniem"
+    detail: "Czy mamy ustrukturyzowany proces wdrożenia nowych pracowników i wolontariuszy?"
+    scale_min_text: "wdrożenie nowe jest ad hoc"
+    scale_max_text: "wdrożenie jest planowane i standaryzowane"
+
+  - id: 5
+    category_id: 7
+    subcategory_id: 2
+    description: "Zarządzanie informacjami o kandydatach"
+    detail: "Czy utrzymujemy i chronimy dane osobowe kandydatów zgodnie z RODO?"
+    scale_min_text: "brak uporządkowanej bazy kandydatów"
+    scale_max_text: "dane są bezpieczne, kompletne i aktualizowane"
+
+  # --------------------------------------------------
+  # Kategoria 7 / Podkategoria 3
+  # --------------------------------------------------
+  - id: 1
+    category_id: 7
+    subcategory_id: 3
+    description: "Zarządzanie orientacją i wdrażaniem pracowników"
+    detail: "Czy oferujemy formalne programy orientacji i wsparcia nowych pracowników?"
+    scale_min_text: "brak programu orientacji"
+    scale_max_text: "programy są wdrożone, monitorowane i doskonalone"
+
+  - id: 2
+    category_id: 7
+    subcategory_id: 3
+    description: "Zarządzanie wydajnością pracowników"
+    detail: "Czy prowadzimy cykliczne oceny wydajności i udzielamy feedbacku?"
+    scale_min_text: "brak formalnych ocen wydajności"
+    scale_max_text: "oceny są przeprowadzane, dokumentowane i wykorzystywane"
+
+  - id: 3
+    category_id: 7
+    subcategory_id: 3
+    description: "Zarządzanie rozwojem kariery pracowników"
+    detail: "Czy wspieramy rozwój ścieżek kariery zgodnie z kompetencjami i aspiracjami?"
+    scale_min_text: "brak wsparcia rozwoju kariery"
+    scale_max_text: "ścieżki kariery są planowane i monitorowane"
+
+  - id: 4
+    category_id: 7
+    subcategory_id: 3
+    description: "Rozwój i szkolenie pracowników"
+    detail: "Czy zapewniamy szkolenia i rozwój kompetencji wspierające cele organizacji?"
+    scale_min_text: "brak systemu szkoleń"
+    scale_max_text: "szkolenia są planowane, realizowane i oceniane"
+
+  # --------------------------------------------------
+  # Kategoria 7 / Podkategoria 4
+  # --------------------------------------------------
+  - id: 1
+    category_id: 7
+    subcategory_id: 4
+    description: "Zarządzanie relacjami pracowniczymi"
+    detail: "Czy dbamy o relacje pracownicze, mediacje i dialog z zespołem?"
+    scale_min_text: "brak działań w zakresie relacji pracowniczych"
+    scale_max_text: "relacje są monitorowane i udoskonalane"
+
+  - id: 2
+    category_id: 7
+    subcategory_id: 4
+    description: "Zarządzanie procesem negocjacji zbiorowych"
+    detail: "Czy prowadzimy negocjacje zbiorowe z przedstawicielami pracowników?"
+    scale_min_text: "brak negocjacji zbiorowych"
+    scale_max_text: "negocjacje są prowadzone i dokumentowane"
+
+  - id: 3
+    category_id: 7
+    subcategory_id: 4
+    description: "Zarządzanie partnerstwami pracowniczymi"
+    detail: "Czy współpracujemy ze związkami i organizacjami wspierającymi pracowników?"
+    scale_min_text: "brak partnerstw pracowniczych"
+    scale_max_text: "partnerstwa są utrzymywane i rozwijane"
+
+  - id: 4
+    category_id: 7
+    subcategory_id: 4
+    description: "Zarządzanie skargami pracowników"
+    detail: "Czy mamy procedury przyjmowania i rozpatrywania skarg pracowniczych?"
+    scale_min_text: "brak procedur skarg"
+    scale_max_text: "skargi są rejestrowane, analizowane i zamykane"
+
+  - id: 5
+    category_id: 7
+    subcategory_id: 4
+    description: "Monitorowanie otoczenia prawnego i regulacyjnego"
+    detail: "Czy śledzimy zmiany w prawie pracy i dostosowujemy do nich polityki?"
+    scale_min_text: "brak monitoringu przepisów"
+    scale_max_text: "zmiany są analizowane i wdrażane w politykach"
+
+  # --------------------------------------------------
+  # Kategoria 7 / Podkategoria 5
+  # --------------------------------------------------
+  - id: 1
+    category_id: 7
+    subcategory_id: 5
+    description: "Opracowywanie programów nagród i motywacji"
+    detail: "Czy tworzymy i aktualizujemy programy nagród oraz uznania dla pracowników?"
+    scale_min_text: "brak programów motywacyjnych"
+    scale_max_text: "programy są wdrażane i oceniane pod kątem skuteczności"
+
+  - id: 2
+    category_id: 7
+    subcategory_id: 5
+    description: "Zarządzanie świadczeniami pracowniczymi"
+    detail: "Czy administrowanie benefitami pracowniczymi odbywa się zgodnie z potrzebami?"
+    scale_min_text: "brak zarządzania benefitami"
+    scale_max_text: "benefity są dostosowane i monitorowane"
+
+  - id: 3
+    category_id: 7
+    subcategory_id: 5
+    description: "Zarządzanie wsparciem i utrzymaniem pracowników"
+    detail: "Czy zapewniamy wsparcie administracyjne i socjalne dla pracowników?"
+    scale_min_text: "brak wsparcia administracyjnego"
+    scale_max_text: "wsparcie jest dostępne i oceniane przez zespół"
+
+  - id: 4
+    category_id: 7
+    subcategory_id: 5
+    description: "Zarządzanie listą płac"
+    detail: "Czy listy płac są przygotowywane i wypłacane terminowo oraz zgodnie z przepisami?"
+    scale_min_text: "brak uporządkowanego procesu płacowego"
+    scale_max_text: "płace są przetwarzane terminowo i bezbłędnie"
+
+  # --------------------------------------------------
+  # Kategoria 7 / Podkategoria 6
+  # --------------------------------------------------
+  - id: 1
+    category_id: 7
+    subcategory_id: 6
+    description: "Zarządzanie procesem awansów i degradacji"
+    detail: "Czy mamy procedury awansów i degradacji oparte na jasnych kryteriach?"
+    scale_min_text: "brak formalnych kryteriów awansów"
+    scale_max_text: "kryteria są transparentne i stosowane konsekwentnie"
+
+  - id: 2
+    category_id: 7
+    subcategory_id: 6
+    description: "Zarządzanie separacją"
+    detail: "Czy proces rozstania z pracownikiem jest ustrukturyzowany i wspierający?"
+    scale_min_text: "brak procesu separacji"
+    scale_max_text: "separacja odbywa się zgodnie z procedurami i empatią"
+
+  - id: 3
+    category_id: 7
+    subcategory_id: 6
+    description: "Zarządzanie przejściem na emeryturę"
+    detail: "Czy wspieramy pracowników w planowaniu i przygotowaniu do emerytury?"
+    scale_min_text: "brak wsparcia emerytalnego"
+    scale_max_text: "program wsparcia emerytalnego jest oferowany i monitorowany"
+
+  - id: 4
+    category_id: 7
+    subcategory_id: 6
+    description: "Zarządzanie urlopami"
+    detail: "Czy ewidencjonujemy i zatwierdzamy wnioski urlopowe zgodnie z polityką?"
+    scale_min_text: "brak formalnego zarządzania urlopami"
+    scale_max_text: "urlopy są planowane, zatwierdzane i raportowane"
+
+  - id: 5
+    category_id: 7
+    subcategory_id: 6
+    description: "Opracowywanie i wdrażanie outplacementu"
+    detail: "Czy oferujemy wsparcie outplacementowe pracownikom kończącym współpracę?"
+    scale_min_text: "brak programu outplacementu"
+    scale_max_text: "program jest dostępny i skutecznie wdrażany"
+
+  - id: 6
+    category_id: 7
+    subcategory_id: 6
+    description: "Zarządzanie harmonogramami pracowników"
+    detail: "Czy planujemy grafiki pracy uwzględniające potrzeby projektów i osób?"
+    scale_min_text: "brak formalnego planowania grafików"
+    scale_max_text: "grafiki są tworzone, komunikowane i egzekwowane"
+
+  - id: 7
+    category_id: 7
+    subcategory_id: 6
+    description: "Przenoszenie pracowników i zarządzanie zadaniami"
+    detail: "Czy przydzielamy zadania i stanowiska w oparciu o kompetencje i potrzeby NGO?"
+    scale_min_text: "zadania przydzielane ad hoc"
+    scale_max_text: "przydział jest planowany i monitorowany"
+
+  # --------------------------------------------------
+  # Kategoria 7 / Podkategoria 7
+  # --------------------------------------------------
+  - id: 1
+    category_id: 7
+    subcategory_id: 7
+    description: "Zarządzanie procesem zapytań pracowniczych"
+    detail: "Czy mamy system rejestracji i obsługi zapytań pracowniczych?"
+    scale_min_text: "brak systemu zapytań"
+    scale_max_text: "zapytania są rejestrowane i rozwiązywane"
+
+  - id: 2
+    category_id: 7
+    subcategory_id: 7
+    description: "Zarządzanie i utrzymywanie danych pracowników"
+    detail: "Czy utrzymujemy aktualną i bezpieczną bazę danych osobowych pracowników?"
+    scale_min_text: "brak uporządkowanych danych personalnych"
+    scale_max_text: "dane są aktualne, kompletne i chronione"
+
+  - id: 3
+    category_id: 7
+    subcategory_id: 7
+    description: "Zarządzanie systemami HRIS"
+    detail: "Czy korzystamy z systemu HRIS do ewidencji i analiz zasobów ludzkich?"
+    scale_min_text: "brak systemu HRIS"
+    scale_max_text: "HRIS jest wykorzystywany do zarządzania danymi i raportów"
+
+  - id: 4
+    category_id: 7
+    subcategory_id: 7
+    description: "Opracowywanie miar pracowniczych"
+    detail: "Czy definiujemy i śledzimy KPI HR, takie jak rotacja, absencja czy zaangażowanie?"
+    scale_min_text: "brak mierników HR"
+    scale_max_text: "mierniki są monitorowane i raportowane"
+
+  - id: 5
+    category_id: 7
+    subcategory_id: 7
+    description: "Rejestracja czasu pracy i obecności"
+    detail: "Czy ewidencjonujemy czas pracy i obecność pracowników zgodnie z przepisami?"
+    scale_min_text: "brak ewidencji czasu pracy"
+    scale_max_text: "czas jest rejestrowany, weryfikowany i raportowany"
+
+  - id: 6
+    category_id: 7
+    subcategory_id: 7
+    description: "Opracowywanie analiz pracowników"
+    detail: "Czy analizujemy dane HR, by wspierać decyzje dotyczące zasobów ludzkich?"
+    scale_min_text: "brak analiz HR"
+    scale_max_text: "analizy są przeprowadzane i wykorzystywane w planowaniu"
+
+  - id: 7
+    category_id: 7
+    subcategory_id: 7
+    description: "Wdrażanie analizy siły roboczej"
+    detail: "Czy prowadzimy analizę składu i potrzeb siły roboczej pod kątem projektów NGO?"
+    scale_min_text: "brak analizy siły roboczej"
+    scale_max_text: "analizy wspierają decyzje o rekrutacji i rozwoju"
+
+  - id: 8
+    category_id: 7
+    subcategory_id: 7
+    description: "Zarządzanie sugestiami i badaniami pracowniczymi"
+    detail: "Czy zbieramy sugestie i przeprowadzamy badania zaangażowania pracowników?"
+    scale_min_text: "brak systemu sugestii"
+    scale_max_text: "sugestie i badania są systematyczne i wpływają na zmiany"
+
+  - id: 9
+    category_id: 7
+    subcategory_id: 7
+    description: "Opracowanie planu komunikacji z pracownikami"
+    detail: "Czy mamy plan komunikacji wewnętrznej wspierający kulturę organizacyjną?"
+    scale_min_text: "brak planu komunikacji wewnętrznej"
+    scale_max_text: "plan jest wdrożony i oceniany pod kątem skuteczności"
+
+  - id: 10
+    category_id: 7
+    subcategory_id: 7
+    description: "Przeprowadzanie ankiet zaangażowania"
+    detail: "Czy regularnie mierzymy stopień zaangażowania i satysfakcji pracowników?"
+    scale_min_text: "brak ankiet zaangażowania"
+    scale_max_text: "ankiety są przeprowadzane i wyniki analizowane"
+
+  - id: 11
+    category_id: 7
+    subcategory_id: 7
+    description: "Prowadzenie komunikacji z pracownikami"
+    detail: "Czy utrzymujemy dwustronną komunikację z pracownikami przez różne kanały?"
+    scale_min_text: "komunikacja jest jednostronna"
+    scale_max_text: "komunikacja jest dwustronna, regularna i mierzalna"
+
