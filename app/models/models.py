@@ -31,6 +31,8 @@ class Question(Base):
     id = Column(Integer, primary_key=True, autoincrement=False)
     description = Column(String, nullable=False)
     detail = Column(String, default="", nullable=True)
+    scale_min_text = Column(String, nullable=True, server_default='')
+    scale_max_text = Column(String, nullable=True, server_default='')
     __table_args__ = (
         ForeignKeyConstraint(['category_id'], ['categories.id']),
         ForeignKeyConstraint(['category_id', 'subcategory_id'], ['subcategories.category_id', 'subcategories.id']),

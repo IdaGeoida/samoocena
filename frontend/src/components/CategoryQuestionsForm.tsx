@@ -55,12 +55,16 @@ export default function CategoryQuestionsForm({ category, index, total, onSubmit
                   {q.detail}
                 </Form.Text>
               )}
+              {(q.scale_min_text || q.scale_max_text) && (
+                <Form.Text className="text-muted d-block mb-2" style={{ fontSize: 'smaller' }}>
+                  Odpowiedz na skali od 1 do 5, gdzie 1 oznacza <em>{q.scale_min_text}</em> a 5 oznacza <em>{q.scale_max_text}</em>. N/A oznacza, że dany proces nie dotyczy Twojej organizacji i nie będzie uwzględniony w badaniu.
+                </Form.Text>
+              )}
               <div className="d-flex align-items-center">
-                <div className="me-2">
-                  {[1,2,3,4,5].map((n) => (
+                <div className="d-flex flex-grow-1 justify-content-between me-2">
+                  {[1, 2, 3, 4, 5].map((n) => (
                     <Form.Check
                       key={n}
-                      inline
                       type="radio"
                       id={`${q.category_id}_${q.subcategory_id}_${q.id}_${n}`}
                       label={String(n)}
@@ -70,7 +74,6 @@ export default function CategoryQuestionsForm({ category, index, total, onSubmit
                   ))}
                 </div>
                 <Form.Check
-                  inline
                   type="radio"
                   id={`${q.category_id}_${q.subcategory_id}_${q.id}_na`}
                   label="N/A"

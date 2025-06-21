@@ -8,6 +8,8 @@ export interface Question {
   id: number
   description: string
   detail?: string
+  scale_min_text?: string
+  scale_max_text?: string
   category_id: number
   subcategory_id: number
 }

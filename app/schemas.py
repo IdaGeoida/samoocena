@@ -51,6 +51,8 @@ class QuestionBase(BaseModel):
     subcategory_id: int
     description: str
     detail: str | None = None
+    scale_min_text: str | None = None
+    scale_max_text: str | None = None
 
 
 class QuestionCreate(QuestionBase):
