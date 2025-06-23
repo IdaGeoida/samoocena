@@ -44,3 +44,7 @@
   font-size: 2rem;
   margin-bottom: 0.5rem;
 }
+
+.scale-label {
+  font-size: smaller;
+}
