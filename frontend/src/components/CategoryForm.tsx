@@ -2,7 +2,21 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { CategoryGroup, Category } from '../types'
 import { Form, Button, Row, Col, Card } from 'react-bootstrap'
-import { FaLaptop, FaUsers, FaMoneyBillAlt, FaQuestionCircle } from 'react-icons/fa'
+import {
+  FaLaptop,
+  FaUsers,
+  FaMoneyBillAlt,
+  FaQuestionCircle,
+  FaLightbulb,
+  FaCogs,
+  FaBullhorn,
+  FaTruck,
+  FaHeadset,
+  FaBuilding,
+  FaShieldAlt,
+  FaHandshake,
+  FaChartLine,
+} from 'react-icons/fa'
 
 interface Props {
   onSubmit: (categories: CategoryGroup[]) => void
@@ -37,14 +51,32 @@ export default function CategoryForm({ onSubmit }: Props) {
     onSubmit(categories.filter(c => selected.includes(c.id)))
   }
 
-  const getIcon = (name: string) => {
-    switch (name) {
-      case 'IT':
-        return <FaLaptop className="category-icon" />
-      case 'HR':
+  const getIcon = (id: number) => {
+    switch (id) {
+      case 1:
+        return <FaLightbulb className="category-icon" />
+      case 2:
+        return <FaCogs className="category-icon" />
+      case 3:
+        return <FaBullhorn className="category-icon" />
+      case 5:
+        return <FaTruck className="category-icon" />
+      case 6:
+        return <FaHeadset className="category-icon" />
+      case 7:
         return <FaUsers className="category-icon" />
-      case 'Finance':
+      case 8:
+        return <FaLaptop className="category-icon" />
+      case 9:
         return <FaMoneyBillAlt className="category-icon" />
+      case 10:
+        return <FaBuilding className="category-icon" />
+      case 11:
+        return <FaShieldAlt className="category-icon" />
+      case 12:
+        return <FaHandshake className="category-icon" />
+      case 13:
+        return <FaChartLine className="category-icon" />
       default:
         return <FaQuestionCircle className="category-icon" />
     }
@@ -64,7 +96,7 @@ export default function CategoryForm({ onSubmit }: Props) {
             >
               {selected.includes(c.id) && <span className="check-icon">✓</span>}
               <Card.Body className="d-flex flex-column justify-content-center align-items-center">
-                {getIcon(c.name)}
+                {getIcon(c.id)}
                 <span className="category-label">{c.name}</span>
               </Card.Body>
             </Card>
