@@ -82,11 +82,11 @@ export default function CategoryQuestionsForm({ category, index, total, onSubmit
               )}
               {(q.scale_min_text || q.scale_max_text) && (
                 <Form.Text className="text-muted d-block mb-2" style={{ fontSize: 'smaller' }}>
-                  Odpowiedz na skali od 1 do 5. N/A oznacza, że dany proces nie dotyczy Twojej organizacji i nie będzie uwzględniony w badaniu.
+                  Odpowiedz na skali od 1 do 5, gdzie 1 oznacza <em>{q.scale_min_text}</em> a 5 oznacza <em>{q.scale_max_text}</em>. N/A oznacza, że dany proces nie dotyczy Twojej organizacji i nie będzie uwzględniony w badaniu.
                 </Form.Text>
               )}
               <div className="d-flex align-items-center">
-                <div className="d-flex flex-grow-1 justify-content-between me-2 position-relative pb-3">
+                <div className="d-flex flex-grow-1 justify-content-between me-2">
                   {[1, 2, 3, 4, 5].map((n) => (
                     <Form.Check
                       key={n}
@@ -94,7 +94,6 @@ export default function CategoryQuestionsForm({ category, index, total, onSubmit
                       id={`${q.category_id}_${q.subcategory_id}_${q.id}_${n}`}
                       label={String(n)}
                       value={n}
-                      className="text-center flex-fill"
                       {...register(`${q.category_id}_${q.subcategory_id}_${q.id}`)}
                       onChange={(e) =>
                         setAnswers((prev) => ({
@@ -104,16 +103,6 @@ export default function CategoryQuestionsForm({ category, index, total, onSubmit
                       }
                     />
                   ))}
-                  {(q.scale_min_text || q.scale_max_text) && (
-                    <div className="position-absolute w-100 d-flex justify-content-between scale-labels px-1">
-                      {q.scale_min_text && (
-                        <Form.Text className="text-muted">{q.scale_min_text}</Form.Text>
-                      )}
-                      {q.scale_max_text && (
-                        <Form.Text className="text-muted text-end">{q.scale_max_text}</Form.Text>
-                      )}
-                    </div>
-                  )}
                 </div>
                 <Form.Check
                   type="radio"
