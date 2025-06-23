@@ -6,15 +6,7 @@ import { CategoryGroup } from '../../types'
 
 vi.mock('../../api/questions', () => ({
   getQuestions: vi.fn(() => Promise.resolve([
-    {
-      id: 1,
-      description: 'Q1',
-      detail: 'qd1',
-      category_id: 1,
-      subcategory_id: 10,
-      scale_min_text: 'min',
-      scale_max_text: 'max',
-    },
+    { id: 1, description: 'Q1', detail: 'qd1', category_id: 1, subcategory_id: 10 },
     { id: 2, description: 'Q2', detail: 'qd2', category_id: 1, subcategory_id: 20 },
   ]))
 }))
@@ -44,12 +36,6 @@ describe('CategoryQuestionsForm', () => {
 
     // second subcategory now visible
     expect(await screen.findByText('subdesc2')).toBeInTheDocument()
-  })
-
-  it('shows scale labels below 1 and 5', async () => {
-    render(<CategoryQuestionsForm category={category} index={0} total={1} onSubmit={() => {}} />)
-    expect(await screen.findByText('min')).toBeInTheDocument()
-    expect(screen.getByText('max')).toBeInTheDocument()
   })
 
   it('disables submit button until questions in each subcategory answered', async () => {
