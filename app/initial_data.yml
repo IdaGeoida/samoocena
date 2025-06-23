@@ -5,8 +5,6 @@ categories:
     name: "Rozwój i zarządzanie produktami i usługami"
   - id: 3
     name: "Marketing i sprzedaż produktów i usług"
-  - id: 4
-    name: "Zarządzanie łańcuchem dostaw produktów fizycznych"
   - id: 5
     name: "Dostarczanie usług"
   - id: 6
@@ -87,24 +85,6 @@ subcategories:
     description: "Proces definiowania sposobów upowszechniania i dystrybucji usług NGO."
     category_id: 3
 
-  # Kategoria 4
-  - id: 1
-    name: "Planowanie i dostosowywanie zasobów łańcucha dostaw"
-    description: "Proces planowania i dostosowywania zasobów w łańcuchu dostaw produktów fizycznych, obejmujący prognozowanie popytu i harmonogramowanie dystrybucji."
-    category_id: 4
-  - id: 2
-    name: "Zamawianie materiałów i usług"
-    description: "Proces zamawiania materiałów i usług, w tym wybór dostawców, negocjacje umów oraz zarządzanie dostawami."
-    category_id: 4
-  - id: 3
-    name: "Produkcja, montaż i testowanie produktu"
-    description: "Procesy związane z produkcją, montażem i testowaniem produktów fizycznych przed ich dostawą."
-    category_id: 4
-  - id: 4
-    name: "Zarządzanie logistyką i magazynowaniem"
-    description: "Procesy zarządzania przepływem materiałów w magazynach i logistyki wyjściowej."
-    category_id: 4
-
   # Kategoria 5
   - id: 1
     name: "Ustanowienie zarządzania i strategii świadczenia usług"
@@ -128,6 +108,10 @@ subcategories:
   - id: 2
     name: "Planowanie i zarządzanie kontaktami z obsługą klienta"
     description: "Proces planowania zasobów i zarządzania interakcjami w ramach obsługi klienta."
+    category_id: 6
+  - id: 3
+    name: "Ocena działań związanych z obsługą klienta i jego satysfakcji"
+    description: "Proces pomiaru satysfakcji klientów z różnych aspektów obsługi organizacji."
     category_id: 6
 
   # Kategoria 7
@@ -166,6 +150,11 @@ subcategories:
     description: "Proces zarządzania danymi pracowników, raportowania i analiz HR."
     category_id: 7
 
+  - id: 8
+    name: "Zarządzanie komunikacją z pracownikami"
+    description: "Proces definiowania, planowania i realizacji dwustronnej komunikacji wewnętrznej z pracownikami i wolontariuszami."
+    category_id: 7
+
   # Kategoria 8
   - id: 1
     name: "Rozwijanie i zarządzanie relacjami z klientami IT"
@@ -180,8 +169,20 @@ subcategories:
     description: "Procesy związane z zarządzaniem ryzykiem, zgodnością i ciągłością usług IT."
     category_id: 8
   - id: 4
-    name: "Rozwijanie i zarządzanie bezpieczeństwem IT, prywatnością i ochroną danych"
-    description: "Procesy zapewniające bezpieczeństwo zasobów IT, ochronę danych i prywatności."
+    name: "Zarządzanie informacjami"
+    description: "Procesy definiowania, zarządzania i ochrony informacji wykorzystywanych w IT."
+    category_id: 8
+  - id: 5
+    name: "Opracowywanie usług/rozwiązań i zarządzanie nimi"
+    description: "Proces planowania, projektowania i utrzymania usług i rozwiązań IT."
+    category_id: 8
+  - id: 6
+    name: "Wdrażanie usług/rozwiązań"
+    description: "Proces planowania i realizacji wdrożeń usług i rozwiązań IT."
+    category_id: 8
+  - id: 7
+    name: "Tworzenie i zarządzanie usługami/rozwiązaniami wsparcia"
+    description: "Proces definiowania i zarządzania usługami wsparcia IT dla użytkowników."
     category_id: 8
 
   # Kategoria 9
@@ -202,8 +203,36 @@ subcategories:
     description: "Procesy zarządzania politykami finansowymi, ewidencją i raportowaniem sprawozdań."
     category_id: 9
   - id: 5
-    name: "Zarządzanie informacjami biznesowymi"
+    name: "Zarządzanie informacjami"
     description: "Procesy definiowania, utrzymywania i kontroli cyklu życia informacji finansowych."
+    category_id: 9
+  - id: 6
+    name: "Przetwarzanie listy płac"
+    description: "Proces raportowania czasu pracy, naliczania wynagrodzeń oraz przetwarzania podatków od wynagrodzeń."
+    category_id: 9
+  - id: 7
+    name: "Przetwarzanie zobowiązań i zwrotów kosztów"
+    description: "Proces przetwarzania zobowiązań finansowych (AP), zwrotów kosztów oraz zarządzania firmowymi kartami kredytowymi."
+    category_id: 9
+  - id: 8
+    name: "Zarządzanie operacjami skarbowymi"
+    description: "Proces zarządzania politykami i procedurami skarbowymi, płynnością, rachunkami bankowymi, zadłużeniem, transakcjami zabezpieczającymi oraz przypadkami oszustw finansowych."
+    category_id: 9
+  - id: 9
+    name: "Zarządzanie kontrolą wewnętrzną"
+    description: "Proces ustanawiania, monitorowania i raportowania kontroli wewnętrznych w organizacji."
+    category_id: 9
+  - id: 10
+    name: "Zarządzanie podatkami"
+    description: "Proces opracowania strategii podatkowej i przetwarzania zobowiązań podatkowych."
+    category_id: 9
+  - id: 11
+    name: "Zarządzanie międzynarodowymi funduszami/konsolidacja"
+    description: "Proces monitorowania i zarządzania transakcjami międzynarodowymi, ekspozycją walutową oraz raportowaniem konsolidacyjnym."
+    category_id: 9
+  - id: 12
+    name: "Wykonywanie globalnych usług handlowych"
+    description: "Proces globalnych operacji handlowych: sankcje, cło, waluty, dokumentacja i preferencje handlowe."
     category_id: 9
 
   # Kategoria 10
@@ -225,10 +254,6 @@ subcategories:
     category_id: 10
 
   # Kategoria 11
-  - id: 1
-    name: "Zarządzanie ryzykiem korporacyjnym"
-    description: "Zarządzanie ryzykiem na poziomie korporacyjnym i projektowym."
-    category_id: 11
   - id: 2
     name: "Zarządzanie zgodnością"
     description: "Ustanawianie i monitorowanie zgodności z przepisami i politykami."
@@ -243,10 +268,6 @@ subcategories:
     category_id: 11
 
   # Kategoria 12
-  - id: 1
-    name: "Budowanie relacji z inwestorami"
-    description: "Procesy związane z pozyskiwaniem i utrzymywaniem relacji z inwestorami"
-    category_id: 12
   - id: 2
     name: "Zarządzanie relacjami rządowymi i branżowymi"
     description: "Procesy związane z utrzymywaniem relacji z organami rządowymi i grupami branżowymi"
@@ -287,9 +308,21 @@ subcategories:
     category_id: 13
   - id: 6
     name: "Pomiar i analiza porównawcza"
-    description: "Procesy pomiaru wydajności i analiz benchmarkowych w organizacji"
+    description: "Procesy pomiaru wydajności i benchmarkingu działań NGO."
+    category_id: 13
+  - id: 7
+    name: "Opracowywanie, zarządzanie i dostarczanie analiz"
+    description: "Proces definiowania, realizacji i dostarczania analiz wspierających decyzje organizacyjne."
+    category_id: 13
+  - id: 8
+    name: "Zarządzanie zdrowiem i bezpieczeństwem środowiska (EHS)"
+    description: "Proces definiowania i monitorowania wpływu działań organizacji na zdrowie ludzi i bezpieczeństwo środowiska."
     category_id: 13
 
+  - id: 9
+    name: "Zarządzanie zrównoważonym rozwojem"
+    description: "Proces rozwijania i zarządzania zdolnościami organizacji w zakresie zrównoważonego rozwoju."
+    category_id: 13
 
 questions:
   # --------------------------------------------------
@@ -393,6 +426,14 @@ questions:
     detail: "Czy regularnie komunikujemy strategię wewnętrznie i na zewnątrz do kluczowych interesariuszy?"
     scale_min_text: "strategia niekomunikowana"
     scale_max_text: "strategia jest systematycznie komunikowana i rozumiana przez interesariuszy"
+
+  - id: 9
+    category_id: 1
+    subcategory_id: 2
+    description: "Formułowanie strategii jednostek biznesowych"
+    detail: "Czy formułujemy strategie dla poszczególnych jednostek biznesowych lub programowych, dostosowane do struktury organizacji NGO?"
+    scale_min_text: "nie formułujemy strategii jednostek biznesowych"
+    scale_max_text: "strategie jednostek są definiowane, komunikowane i monitorowane"
 
   # --------------------------------------------------
   # Kategoria 1 / Podkategoria 3
@@ -837,6 +878,31 @@ questions:
     scale_min_text: "brak procedur raportowania incydentów"
     scale_max_text: "incydenty są zgłaszane i monitorowane zgodnie z przepisami"
 
+  # Kategoria 6 / Podkategoria 3 – pytania do pomiaru satysfakcji
+  - id: 1
+    category_id: 6
+    subcategory_id: 3
+    description: "Pomiar satysfakcji klienta z obsługi problemów, próśb i zapytań klienta"
+    detail: "Czy mierzymy satysfakcję beneficjentów i darczyńców z obsługi ich problemów, próśb i zapytań?"
+    scale_min_text: "nie mierzymy satysfakcji z obsługi problemów i zapytań"
+    scale_max_text: "satysfakcja jest regularnie mierzona i analizowana"
+
+  - id: 2
+    category_id: 6
+    subcategory_id: 3
+    description: "Pomiar satysfakcji klienta z obsługi i rozwiązywania reklamacji klienta"
+    detail: "Czy mierzymy satysfakcję beneficjentów i darczyńców z obsługi oraz rozwiązywania reklamacji?"
+    scale_min_text: "nie mierzymy satysfakcji z obsługi reklamacji"
+    scale_max_text: "satysfakcja jest regularnie mierzona i analizowana"
+
+  - id: 3
+    category_id: 6
+    subcategory_id: 3
+    description: "Pomiar zadowolenia klientów z produktów i usług"
+    detail: "Czy mierzymy zadowolenie beneficjentów z oferowanych przez nas produktów i usług?"
+    scale_min_text: "nie mierzymy zadowolenia z produktów i usług"
+    scale_max_text: "zadowolenie jest regularnie mierzona i analizowane"
+
   # --------------------------------------------------
   # Kategoria 7 / Podkategoria 1
   # --------------------------------------------------
@@ -1178,6 +1244,31 @@ questions:
     scale_min_text: "komunikacja jest jednostronna"
     scale_max_text: "komunikacja jest dwustronna, regularna i mierzalna"
 
+  # Kategoria 7 / Podkategoria 8 – pytania dotyczące komunikacji z pracownikami
+  - id: 1
+    category_id: 7
+    subcategory_id: 8
+    description: "Opracowanie planu komunikacji z pracownikami"
+    detail: "Czy opracowujemy i aktualizujemy plan komunikacji wewnętrznej wspierający cele i kulturę organizacji?"
+    scale_min_text: "brak formalnego planu komunikacji wewnętrznej"
+    scale_max_text: "plan komunikacji jest dokumentowany, wdrażany i monitorowany"
+
+  - id: 2
+    category_id: 7
+    subcategory_id: 8
+    description: "Przeprowadzanie ankiet zaangażowania pracowników"
+    detail: "Czy regularnie mierzymy poziom zaangażowania i satysfakcji pracowników poprzez ankiety i badania?"
+    scale_min_text: "brak ankiet zaangażowania"
+    scale_max_text: "ankiety są przeprowadzane i wyniki są analizowane i wdrażane"
+
+  - id: 3
+    category_id: 7
+    subcategory_id: 8
+    description: "Prowadzenie komunikacji z pracownikami"
+    detail: "Czy utrzymujemy dwustronną, regularną komunikację z pracownikami za pomocą różnych kanałów?"
+    scale_min_text: "komunikacja wewnętrzna jest jednostronna lub sporadyczna"
+    scale_max_text: "komunikacja jest dwustronna, regularna i mierzalna"
+
   # --------------------------------------------------
   # Kategoria 8 / Podkategoria 1
   # --------------------------------------------------
@@ -1331,32 +1422,218 @@ questions:
     scale_min_text: "brak planów ciągłości IT"
     scale_max_text: "plany ciągłości IT są wdrożone i testowane"
 
-  # --------------------------------------------------
-  # Kategoria 8 / Podkategoria 4
-  # --------------------------------------------------
-  - id: 1
+  - id: 5
     category_id: 8
-    subcategory_id: 4
+    subcategory_id: 3
     description: "Rozwijanie i zarządzanie bezpieczeństwem IT, prywatnością i ochroną danych"
     detail: "Czy zapewniamy bezpieczeństwo systemów IT, ochronę danych i prywatności użytkowników?"
     scale_min_text: "nie prowadzimy działań w zakresie bezpieczeństwa IT"
     scale_max_text: "bezpieczeństwo IT i ochrona danych są zarządzane, audytowane i optymalizowane"
 
-  - id: 2
+  - id: 6
     category_id: 8
-    subcategory_id: 4
+    subcategory_id: 3
     description: "Przeprowadzanie i analizowanie ocen zgodności IT"
     detail: "Czy przeprowadzamy audyty zgodności IT z wewnętrznymi i zewnętrznymi regulacjami?"
     scale_min_text: "brak ocen zgodności IT"
     scale_max_text: "oceny zgodności są regularnie przeprowadzane i dokumentowane"
 
-  - id: 3
+  - id: 7
     category_id: 8
-    subcategory_id: 4
+    subcategory_id: 3
     description: "Opracowywanie i wykonywanie operacji odporności i ciągłości IT"
     detail: "Czy realizujemy operacje wsparcia odporności i przywracania usług IT po incydentach?"
     scale_min_text: "brak operacji przywracania IT"
     scale_max_text: "operacje ciągłości IT są ćwiczone i optymalizowane"
+
+  - id: 8
+    category_id: 8
+    subcategory_id: 3
+    description: "Zarządzanie tożsamością i autoryzacją użytkowników IT"
+    detail: "Czy zarządzamy tożsamością i uprawnieniami użytkowników systemów IT, definiując role, procesy nadawania i egzekwując autoryzację?"
+    scale_min_text: "brak formalnego zarządzania tożsamością i autoryzacją"
+    scale_max_text: "tożsamość i autoryzacja są zarządzane, audytowane i monitorowane"
+
+
+  # Kategoria 8 / Podkategoria 4 – Zarządzanie informacjami
+  - id: 1
+    category_id: 8
+    subcategory_id: 4
+    description: "Definiowanie informacji biznesowych i strategii analitycznej"
+    detail: "Czy definiujemy kluczowe informacje biznesowe i opracowujemy strategię analityczną wspierającą cele NGO?"
+    scale_min_text: "brak strategii informacji biznesowych"
+    scale_max_text: "strategie są zdefiniowane, dokumentowane i wykorzystywane"
+
+  - id: 2
+    category_id: 8
+    subcategory_id: 4
+    description: "Definiowanie i utrzymywanie architektury informacji biznesowych"
+    detail: "Czy utrzymujemy spójną architekturę informacji finansowych i operacyjnych wspierającą raportowanie i analizy?"
+    scale_min_text: "brak architektury informacji"
+    scale_max_text: "architektura jest utrzymywana, aktualizowana i dokumentowana"
+
+  - id: 3
+    category_id: 8
+    subcategory_id: 4
+    description: "Definiowanie i realizacja planowania i kontroli cyklu życia informacji biznesowych"
+    detail: "Czy planujemy i kontrolujemy cykl życia kluczowych informacji IT, od utworzenia po archiwizację?"
+    scale_min_text: "brak kontroli cyklu życia informacji"
+    scale_max_text: "cykl życia informacji jest planowany, monitorowany i optymalizowany"
+
+  - id: 4
+    category_id: 8
+    subcategory_id: 4
+    description: "Zarządzanie informacjami biznesowymi"
+    detail: "Czy zarządzamy jakością, dostępnością i bezpieczeństwem informacji wykorzystywanych w usługach IT?"
+    scale_min_text: "brak procesów zarządzania informacjami"
+    scale_max_text: "informacje są weryfikowane, aktualizowane i dostępne na żądanie"
+
+  # Kategoria 8 / Podkategoria 5 – Opracowywanie usług/rozwiązań i zarządzanie nimi
+  - id: 1
+    category_id: 8
+    subcategory_id: 5
+    description: "Opracowywanie usług/rozwiązań i strategii integracji"
+    detail: "Czy definiujemy usługi IT i strategię ich integracji z istniejącymi systemami NGO?"
+    scale_min_text: "brak strategii integracji usług"
+    scale_max_text: "strategie integracji są zdefiniowane i wdrażane"
+
+  - id: 2
+    category_id: 8
+    subcategory_id: 5
+    description: "Zarządzanie planowaniem cyklu życia usługi/rozwiązania"
+    detail: "Czy zarządzamy cyklem życia usług IT od projektowania, przez wdrożenie, aż po wycofanie?"
+    scale_min_text: "brak zarządzania cyklem życia usług"
+    scale_max_text: "cykl życia usług jest w pełni zarządzany i monitorowany"
+
+  - id: 3
+    category_id: 8
+    subcategory_id: 5
+    description: "Opracowywanie architektury usług/rozwiązań i zarządzanie nią"
+    detail: "Czy definiujemy i utrzymujemy architekturę techniczną usług i rozwiązań IT?"
+    scale_min_text: "brak architektury usług"
+    scale_max_text: "architektura jest dokumentowana, aktualizowana i optymalizowana"
+
+  - id: 4
+    category_id: 8
+    subcategory_id: 5
+    description: "Tworzenie i testowanie usług/rozwiązań IT"
+    detail: "Czy prototypujemy, testujemy i walidujemy nowe usługi IT z udziałem użytkowników?"
+    scale_min_text: "brak testów usług"
+    scale_max_text: "usługi są prototypowane, testowane i oceniane"
+
+  - id: 5
+    category_id: 8
+    subcategory_id: 5
+    description: "Wykonywanie konserwacji i testowanie usług/rozwiązań"
+    detail: "Czy prowadzimy regularną konserwację i testy usług IT, aby zapewnić ich stabilność?"
+    scale_min_text: "brak regularnej konserwacji"
+    scale_max_text: "konserwacja i testy są planowane i dokumentowane"
+
+  # Kategoria 8 / Podkategoria 6 – Wdrażanie usług/rozwiązań
+  - id: 1
+    category_id: 8
+    subcategory_id: 6
+    description: "Opracowywanie strategii wdrażania usług/rozwiązań i zarządzanie nią"
+    detail: "Czy definiujemy strategię wdrożeń usług IT i zarządzamy procesem jej realizacji?"
+    scale_min_text: "brak strategii wdrożeń"
+    scale_max_text: "strategia wdrożeń jest dokumentowana i monitorowana"
+
+  - id: 2
+    category_id: 8
+    subcategory_id: 6
+    description: "Planowanie wdrażania usług i rozwiązań"
+    detail: "Czy planujemy wdrożenia usług IT, uwzględniając zasoby i terminy?"
+    scale_min_text: "brak planu wdrożeń"
+    scale_max_text: "plan wdrożeń jest pełny, komunikowany i egzekwowany"
+
+  - id: 3
+    category_id: 8
+    subcategory_id: 6
+    description: "Zarządzanie kontrolą wdrażania zmian"
+    detail: "Czy zarządzamy kontrolą zmian podczas wdrożeń, aby minimalizować ryzyko?"
+    scale_min_text: "brak kontroli zmian"
+    scale_max_text: "zmiany są kontrolowane i audytowane"
+
+  - id: 4
+    category_id: 8
+    subcategory_id: 6
+    description: "Wdrażanie rozwiązań technologicznych"
+    detail: "Czy realizujemy wdrożenia nowych rozwiązań technologicznych zgodnie z planem?"
+    scale_min_text: "brak ustrukturyzowanego procesu wdrożeń"
+    scale_max_text: "wdrożenia są planowane, realizowane i oceniane"
+
+  - id: 5
+    category_id: 8
+    subcategory_id: 6
+    description: "Wdrażanie usług i rozwiązań"
+    detail: "Czy wdrażamy usługi IT i rozwiązania zgodnie z ustalonymi procedurami?"
+    scale_min_text: "brak standaryzacji wdrożeń"
+    scale_max_text: "wdrożenia są standaryzowane, monitorowane i raportowane"
+
+  # Kategoria 8 / Podkategoria 7 – Tworzenie i zarządzanie usługami wsparcia
+  - id: 1
+    category_id: 8
+    subcategory_id: 7
+    description: "Definiowanie i ustanawianie strategii świadczenia usług"
+    detail: "Czy definiujemy i wdrażamy strategię świadczenia usług wsparcia IT dla użytkowników?"
+    scale_min_text: "brak strategii świadczenia usług wsparcia"
+    scale_max_text: "strategia jest dokumentowana, komunikowana i mierzona"
+
+  - id: 2
+    category_id: 8
+    subcategory_id: 7
+    description: "Definiowanie i rozwijanie strategii wsparcia usług"
+    detail: "Czy rozwijamy i aktualizujemy strategię wsparcia usług IT, aby sprostać potrzebom użytkowników?"
+    scale_min_text: "brak strategii wsparcia usług"
+    scale_max_text: "strategia jest aktualizowana i oceniana"
+
+  - id: 3
+    category_id: 8
+    subcategory_id: 7
+    description: "Planowanie i zarządzanie kontrolą dostarczania usług"
+    detail: "Czy planujemy i kontrolujemy proces dostarczania usług wsparcia IT?"
+    scale_min_text: "brak kontroli dostarczania usług"
+    scale_max_text: "dostarczanie jest monitorowane i optymalizowane"
+
+  - id: 4
+    category_id: 8
+    subcategory_id: 7
+    description: "Opracowanie i zarządzanie planowaniem zasobów infrastruktury"
+    detail: "Czy planujemy zasoby infrastruktury IT i zarządzamy nimi zgodnie ze strategią wsparcia?"
+    scale_min_text: "brak planowania zasobów infrastruktury"
+    scale_max_text: "zasoby są planowane, alokowane i monitorowane"
+
+  - id: 5
+    category_id: 8
+    subcategory_id: 7
+    description: "Definiowanie planowania wsparcia usług"
+    detail: "Czy definiujemy harmonogramy i poziomy wsparcia dla usług IT?"
+    scale_min_text: "brak harmonogramów wsparcia"
+    scale_max_text: "harmonogramy są dokumentowane i egzekwowane"
+
+  - id: 6
+    category_id: 8
+    subcategory_id: 7
+    description: "Rozwój i zarządzanie operacjami dostarczania usług"
+    detail: "Czy zarządzamy operacjami wsparcia IT, monitorując jakość i czas reakcji?"
+    scale_min_text: "brak zarządzania operacjami wsparcia"
+    scale_max_text: "operacje są zarządzane, mierzone i raportowane"
+
+  - id: 7
+    category_id: 8
+    subcategory_id: 7
+    description: "Zarządzanie administracją zasobami infrastruktury"
+    detail: "Czy administrujemy zasobami infrastruktury IT (serwery, sieci) zgodnie z najlepszymi praktykami?"
+    scale_min_text: "brak formalnej administracji infrastruktury"
+    scale_max_text: "administracja jest ustrukturyzowana, monitorowana i optymalizowana"
+
+  - id: 8
+    category_id: 8
+    subcategory_id: 7
+    description: "Obsługa użytkowników IT"
+    detail: "Czy prowadzimy centralny serwis wsparcia użytkowników IT (helpdesk) z miernikami wydajności?"
+    scale_min_text: "brak scentralizowanej obsługi użytkowników"
+    scale_max_text: "helpdesk jest wdrożony, oceniany i ciągle udoskonalany"
 
   # --------------------------------------------------
   # Kategoria 9 / Podkategoria 1
@@ -1573,6 +1850,261 @@ questions:
     scale_min_text: "brak procesów zarządzania informacją"
     scale_max_text: "informacje są weryfikowane, aktualizowane i dostępne na żądanie"
 
+  # Kategoria 9 / Podkategoria 6: Przetwarzanie listy płac
+  - id: 1
+    category_id: 9
+    subcategory_id: 6
+    description: "Raportowanie czasu pracy"
+    detail: "Czy raportujemy czas pracy pracowników zgodnie z przyjętymi procedurami?"
+    scale_min_text: "brak raportowania czasu pracy"
+    scale_max_text: "raportowanie czasu pracy jest systematyczne i wykorzystywane do naliczania wynagrodzeń"
+
+  - id: 2
+    category_id: 9
+    subcategory_id: 6
+    description: "Zarządzanie wynagrodzeniami"
+    detail: "Czy zarządzamy procesem naliczania wynagrodzeń, uwzględniając składniki płacowe i polityki HR?"
+    scale_min_text: "brak formalnego procesu zarządzania wynagrodzeniami"
+    scale_max_text: "proces jest ustrukturyzowany, monitorowany i zgodny z przepisami"
+
+  - id: 3
+    category_id: 9
+    subcategory_id: 6
+    description: "Zarządzanie i przetwarzanie podatków od wynagrodzeń"
+    detail: "Czy przetwarzamy podatki od wynagrodzeń zgodnie z obowiązującymi przepisami podatkowymi?"
+    scale_min_text: "brak procesu przetwarzania podatków od wynagrodzeń"
+    scale_max_text: "podatki są przetwarzane zgodnie z prawem i regularnie weryfikowane"
+
+  # Kategoria 9 / Podkategoria 7: Przetwarzanie zobowiązań i zwrotów kosztów
+  - id: 1
+    category_id: 9
+    subcategory_id: 7
+    description: "Przetwarzanie zobowiązań (AP)"
+    detail: "Czy prowadzimy proces przetwarzania zobowiązań (AP), w tym weryfikację i zatwierdzanie faktur?"
+    scale_min_text: "brak procesu przetwarzania zobowiązań"
+    scale_max_text: "proces jest ustrukturyzowany, monitorowany i audytowany"
+
+  - id: 2
+    category_id: 9
+    subcategory_id: 7
+    description: "Przetwarzanie zwrotów kosztów"
+    detail: "Czy obsługujemy zwroty kosztów pracownikom i beneficjentom zgodnie z polityką organizacji?"
+    scale_min_text: "brak procesu zwrotu kosztów"
+    scale_max_text: "zwroty kosztów są przetwarzane terminowo i zgodnie z polityką"
+
+  - id: 3
+    category_id: 9
+    subcategory_id: 7
+    description: "Zarządzanie firmowymi kartami kredytowymi"
+    detail: "Czy zarządzamy firmowymi kartami kredytowymi, monitorując transakcje i rozliczenia?"
+    scale_min_text: "brak procesu zarządzania kartami kredytowymi"
+    scale_max_text: "karty są zarządzane, transakcje weryfikowane i rozliczane"
+
+  # Kategoria 9 / Podkategoria 8: Zarządzanie operacjami skarbowymi
+  - id: 1
+    category_id: 9
+    subcategory_id: 8
+    description: "Zarządzanie politykami i procedurami skarbowymi"
+    detail: "Czy definiujemy i utrzymujemy polityki oraz procedury skarbowe zgodne z wymaganiami NGO?"
+    scale_min_text: "brak polityk skarbowych"
+    scale_max_text: "polityki skarbowe są wdrażane, dokumentowane i monitorowane"
+
+  - id: 2
+    category_id: 9
+    subcategory_id: 8
+    description: "Zarządzanie środkami pieniężnymi"
+    detail: "Czy zarządzamy płynnością finansową, w tym przepływami pieniężnymi i zarządzaniem gotówką?"
+    scale_min_text: "brak zarządzania płynnością"
+    scale_max_text: "środki pieniężne są monitorowane i optymalizowane"
+
+  - id: 3
+    category_id: 9
+    subcategory_id: 8
+    description: "Zarządzanie wewnętrznymi rachunkami bankowymi"
+    detail: "Czy zarządzamy rachunkami bankowymi organizacji, w tym ich otwieraniem, zamykaniem i analizą sald?"
+    scale_min_text: "brak zarządzania rachunkami bankowymi"
+    scale_max_text: "rachunki są zarządzane i monitorowane"
+
+  - id: 4
+    category_id: 9
+    subcategory_id: 8
+    description: "Zarządzanie zadłużeniem i inwestycjami"
+    detail: "Czy zarządzamy zadłużeniem i portfelem inwestycyjnym, monitorując koszty finansowania?"
+    scale_min_text: "brak zarządzania zadłużeniem i inwestycjami"
+    scale_max_text: "zadłużenie i inwestycje są optymalizowane i monitorowane"
+
+  - id: 5
+    category_id: 9
+    subcategory_id: 8
+    description: "Monitorowanie i przeprowadzanie transakcji zabezpieczających przed ryzykiem"
+    detail: "Czy realizujemy transakcje hedgingowe i inne działania zabezpieczające przed ryzykiem walutowym i stóp procentowych?"
+    scale_min_text: "brak transakcji zabezpieczających"
+    scale_max_text: "transakcje zabezpieczające są planowane, dokumentowane i oceniane"
+
+  - id: 6
+    category_id: 9
+    subcategory_id: 8
+    description: "Zarządzanie przypadkami oszustw/sporów finansowych"
+    detail: "Czy obsługujemy przypadki oszustw i sporów finansowych, prowadząc dochodzenia i rozstrzygnięcia?"
+    scale_min_text: "brak procesu zarządzania oszustwami i sporami"
+    scale_max_text: "przypadki są rejestrowane, badane i rozstrzygane"
+
+  # Kategoria 9 / Podkategoria 9: Zarządzanie kontrolą wewnętrzną
+  - id: 1
+    category_id: 9
+    subcategory_id: 9
+    description: "Ustanowienie kontroli wewnętrznych, polityk i procedur"
+    detail: "Czy definiujemy i wdrażamy kontrole wewnętrzne oraz związane z nimi polityki i procedury?"
+    scale_min_text: "brak kontroli wewnętrznych"
+    scale_max_text: "kontrole są wdrożone i regularnie monitorowane"
+
+  - id: 2
+    category_id: 9
+    subcategory_id: 9
+    description: "Obsługa kontroli i monitorowanie zgodności"
+    detail: "Czy monitorujemy zgodność działań z politykami i procedurami kontroli wewnętrznej?"
+    scale_min_text: "brak monitoringu zgodności"
+    scale_max_text: "zgodność jest monitorowana i raportowana"
+
+  - id: 3
+    category_id: 9
+    subcategory_id: 9
+    description: "Sporządzanie raportów z kontroli wewnętrznej"
+    detail: "Czy sporządzamy raporty dotyczące wyników kontroli wewnętrznej i ich zgodności z procedurami?"
+    scale_min_text: "brak raportów z kontroli"
+    scale_max_text: "raporty są przygotowywane, analizowane i omawiane"
+
+  # Kategoria 9 / Podkategoria 10: Zarządzanie podatkami
+  - id: 1
+    category_id: 9
+    subcategory_id: 10
+    description: "Opracowanie strategii i planu podatkowego"
+    detail: "Czy opracowujemy strategię podatkową i plan rozliczeń podatkowych NGO?"
+    scale_min_text: "brak strategii podatkowej"
+    scale_max_text: "strategia jest dokumentowana, monitorowana i aktualizowana"
+
+  - id: 2
+    category_id: 9
+    subcategory_id: 10
+    description: "Przetwarzanie podatków"
+    detail: "Czy przetwarzamy zobowiązania podatkowe organizacji, w tym VAT, CIT i inne podatki?"
+    scale_min_text: "brak procesu przetwarzania podatków"
+    scale_max_text: "podatki są przetwarzane terminowo i zgodnie z przepisami"
+
+  # Kategoria 9 / Podkategoria 11: Zarządzanie międzynarodowymi funduszami/konsolidacja
+  - id: 1
+    category_id: 9
+    subcategory_id: 11
+    description: "Monitorowanie stawek międzynarodowych"
+    detail: "Czy monitorujemy zmiany stawek walutowych i kursów międzybankowych dla funduszy zagranicznych?"
+    scale_min_text: "brak monitoringu stawek międzynarodowych"
+    scale_max_text: "stawki są regularnie monitorowane i uwzględniane"
+
+  - id: 2
+    category_id: 9
+    subcategory_id: 11
+    description: "Zarządzanie transakcjami międzynarodowymi"
+    detail: "Czy przetwarzamy transakcje międzynarodowe zgodnie z procedurami AML i politykami finansowymi?"
+    scale_min_text: "brak procesu zarządzania transakcjami międzynarodowymi"
+    scale_max_text: "transakcje są monitorowane i raportowane"
+
+  - id: 3
+    category_id: 9
+    subcategory_id: 11
+    description: "Monitorowanie ekspozycji walutowej i hedging"
+    detail: "Czy monitorujemy ekspozycję walutową i stosujemy instrumenty hedgingowe?"
+    scale_min_text: "brak monitoringu ekspozycji walutowej"
+    scale_max_text: "ekspozycja jest monitorowana, hedging stosowany i raportowany"
+
+  - id: 4
+    category_id: 9
+    subcategory_id: 11
+    description: "Raportowanie wyników konsolidacyjnych"
+    detail: "Czy sporządzamy raporty konsolidacyjne i analizy wyników funduszy międzynarodowych?"
+    scale_min_text: "brak raportów konsolidacyjnych"
+    scale_max_text: "raporty są tworzone, weryfikowane i udostępniane"
+
+  # Kategoria 9 / Podkategoria 12: Wykonywanie globalnych usług handlowych
+  - id: 1
+    category_id: 9
+    subcategory_id: 12
+    description: "Lista podmiotów objętych sankcjami"
+    detail: "Czy aktualizujemy i sprawdzamy listy podmiotów objętych sankcjami przed transakcjami handlowymi?"
+    scale_min_text: "brak weryfikacji sankcji"
+    scale_max_text: "listy sankcji są aktualizowane i weryfikowane"
+
+  - id: 2
+    category_id: 9
+    subcategory_id: 12
+    description: "Kontrola eksportu i importu"
+    detail: "Czy prowadzimy kontrolę eksportu i importu zgodnie z regulacjami celnymi i sankcjami?"
+    scale_min_text: "brak kontroli eksportu/importu"
+    scale_max_text: "kontrole są systematyczne i dokumentowane"
+
+  - id: 3
+    category_id: 9
+    subcategory_id: 12
+    description: "Klasyfikacja produktów"
+    detail: "Czy klasyfikujemy produkty zgodnie z taryfami celnymi i wymogami regulacyjnymi?"
+    scale_min_text: "brak klasyfikacji produktowej"
+    scale_max_text: "klasyfikacje są aktualizowane i weryfikowane"
+
+  - id: 4
+    category_id: 9
+    subcategory_id: 12
+    description: "Przeliczanie walut"
+    detail: "Czy dokonujemy przeliczeń walutowych zgodnie z oficjalnymi kursami?"
+    scale_min_text: "brak procesu przeliczenia walut"
+    scale_max_text: "przeliczenia są automatyzowane i zgodne z kursami"
+
+  - id: 5
+    category_id: 9
+    subcategory_id: 12
+    description: "Obliczanie cła"
+    detail: "Czy obliczamy należne cło na podstawie klasyfikacji i wartości towarów?"
+    scale_min_text: "brak obliczania cła"
+    scale_max_text: "cło jest obliczane zgodnie z przepisami i dokumentowane"
+
+  - id: 6
+    category_id: 9
+    subcategory_id: 12
+    description: "Komunikacja z organami celnymi"
+    detail: "Czy komunikujemy się z organami celnymi i składamy wymagane dokumenty?"
+    scale_min_text: "brak komunikacji z celnikami"
+    scale_max_text: "komunikacja jest formalna i dokumentowana"
+
+  - id: 7
+    category_id: 9
+    subcategory_id: 12
+    description: "Dokumentowanie handlu"
+    detail: "Czy dokumentujemy transakcje handlowe, w tym faktury, listy przewozowe i licencje?"
+    scale_min_text: "brak dokumentacji handlu"
+    scale_max_text: "dokumentacja jest kompletna i archiwizowana"
+
+  - id: 8
+    category_id: 9
+    subcategory_id: 12
+    description: "Przetwarzanie preferencji handlowych"
+    detail: "Czy przetwarzamy i stosujemy preferencje handlowe (umowy o wolnym handlu)?"
+    scale_min_text: "brak procesu preferencji handlowych"
+    scale_max_text: "preferencje są stosowane i monitorowane"
+
+  - id: 9
+    category_id: 9
+    subcategory_id: 12
+    description: "Obsługa restytucji"
+    detail: "Czy obsługujemy procedury restytucji cła i podatków dla importowanych towarów?"
+    scale_min_text: "brak procesu restytucji"
+    scale_max_text: "restytucje są obsługiwane i raportowane"
+
+  - id: 10
+    category_id: 9
+    subcategory_id: 12
+    description: "Przygotowanie akredytywy"
+    detail: "Czy przygotowujemy i zarządzamy akredytywami zgodnie z wymaganiami banków i kontrahentów?"
+    scale_min_text: "brak procesu akredytyw"
+    scale_max_text: "akredytywy są przetwarzane i monitorowane"
+
   # --------------------------------------------------
   # Kategoria 10 / Podkategoria 1: Planowanie i nabywanie aktywów
   # --------------------------------------------------
@@ -1728,11 +2260,6 @@ questions:
     detail: "Czy zarządzamy odpadami i towarami niebezpiecznymi zgodnie z przepisami?"
     scale_min_text: "brak zarządzania odpadami i towarami niebezpiecznymi"
     scale_max_text: "odpady i towary niebezpieczne są zarządzane zgodnie z przepisami"
-
-  # --------------------------------------------------
-  # Kategoria 11 / Podkategoria 1: Zarządzanie ryzykiem korporacyjnym
-  # --------------------------------------------------
-  # (brak procesów MZ/WP – wszystkie procesy w tej grupie są oznaczone jako NZ)
 
   # --------------------------------------------------
   # Kategoria 11 / Podkategoria 2: Zarządzanie zgodnością
@@ -2176,58 +2703,138 @@ questions:
   - id: 3
     category_id: 13
     subcategory_id: 6
-    description: "Opracowywanie i dostarczanie analiz"
-    detail: "Czy przygotowujemy raporty analityczne wspierające procesy decyzyjne?"
-    scale_min_text: "brak raportów analitycznych"
-    scale_max_text: "raporty są tworzone i wykorzystywane"
+    description: "Ocena wydajności"
+    detail: "Czy regularnie oceniamy wydajność organizacji w oparciu o ustalone wskaźniki i benchmarki?"
+    scale_min_text: "brak oceny wydajności"
+    scale_max_text: "wydajność jest mierzalna, porównywana i wykorzystywana do usprawnień"
+
+  # Kategoria 13 / Podkategoria 7 – pytania dla procesów analitycznych
+  - id: 1
+    category_id: 13
+    subcategory_id: 7
+    description: "Identyfikacja potrzeb interesariuszy"
+    detail: "Czy zbieramy i dokumentujemy wymagania i potrzeby interesariuszy przed rozpoczęciem projektu analitycznego?"
+    scale_min_text: "brak identyfikacji potrzeb interesariuszy"
+    scale_max_text: "potrzeby są kompletne, priorytetyzowane i zatwierdzane"
+
+  - id: 2
+    category_id: 13
+    subcategory_id: 7
+    description: "Zakres projektu analitycznego"
+    detail: "Czy definiujemy zakres projektu analitycznego, w tym cele, metody i oczekiwane wyniki?"
+    scale_min_text: "brak formalnego zakresu projektu"
+    scale_max_text: "zakres jest dokumentowany, komunikowany i monitorowany"
+
+  - id: 3
+    category_id: 13
+    subcategory_id: 7
+    description: "Opracowanie hipotez i zarządzanie nimi"
+    detail: "Czy formułujemy hipotezy badawcze i zarządzamy ich weryfikacją w trakcie projektu?"
+    scale_min_text: "brak formalnych hipotez badawczych"
+    scale_max_text: "hipotezy są dokumentowane, testowane i aktualizowane"
+
   - id: 4
     category_id: 13
-    subcategory_id: 6
-    description: "Identyfikacja potrzeb interesariuszy"
-    detail: "Czy zbieramy wymagania i potrzeby interesariuszy dla projektów NGO?"
-    scale_min_text: "brak identyfikacji potrzeb interesariuszy"
-    scale_max_text: "potrzeby są dokumentowane i uwzględniane"
+    subcategory_id: 7
+    description: "Zbieranie danych"
+    detail: "Czy pozyskujemy dane zgodnie z założonymi metodami i standardami jakości?"
+    scale_min_text: "dane nie są zbierane systematycznie"
+    scale_max_text: "dane są kompletne, weryfikowane i dostępne do analizy"
+
   - id: 5
     category_id: 13
-    subcategory_id: 6
-    description: "Zarządzanie projektem analitycznym"
-    detail: "Czy planujemy i realizujemy projekty analityczne zgodnie z metodologią?"
-    scale_min_text: "brak projektów analitycznych"
-    scale_max_text: "projekty analityczne są planowane i monitorowane"
+    subcategory_id: 7
+    description: "Przygotowanie danych"
+    detail: "Czy przygotowujemy dane (czyszczenie, transformacja) zgodnie z dobrymi praktykami analitycznymi?"
+    scale_min_text: "brak formalnego przygotowania danych"
+    scale_max_text: "dane są czyszczone, wzbogacane i gotowe do modelowania"
+
   - id: 6
     category_id: 13
-    subcategory_id: 6
-    description: "Opracowanie hipotez i weryfikacja danych"
-    detail: "Czy formułujemy hipotezy badawcze i zbieramy dane do ich weryfikacji?"
-    scale_min_text: "brak procesu badawczego"
-    scale_max_text: "hipotezy są weryfikowane i dokumentowane"
+    subcategory_id: 7
+    description: "Analizowanie danych"
+    detail: "Czy stosujemy odpowiednie techniki analizy danych, aby wyciągnąć wnioski wspierające decyzje?"
+    scale_min_text: "analiza danych jest ad hoc"
+    scale_max_text: "analizy są systematyczne, udokumentowane i powtarzalne"
+
   - id: 7
     category_id: 13
-    subcategory_id: 6
-    description: "Zbieranie i przygotowanie danych"
-    detail: "Czy pozyskujemy i przygotowujemy dane do analiz zgodnie z najlepszymi praktykami?"
-    scale_min_text: "brak procesu zbierania danych"
-    scale_max_text: "dane są zbierane, weryfikowane i gotowe do analizy"
+    subcategory_id: 7
+    description: "Tworzenie modeli danych"
+    detail: "Czy budujemy modele danych wspierające prognozowanie i scenariusze dla projektów NGO?"
+    scale_min_text: "brak formalnego modelowania danych"
+    scale_max_text: "modele są weryfikowane, dokumentowane i udostępniane"
+
   - id: 8
     category_id: 13
-    subcategory_id: 6
-    description: "Analizowanie i modelowanie danych"
-    detail: "Czy analizujemy dane i tworzymy modele wspierające decyzje NGO?"
-    scale_min_text: "brak modelowania danych"
-    scale_max_text: "modele są tworzone, weryfikowane i udostępniane"
+    subcategory_id: 7
+    description: "Przegląd modeli danych z interesariuszami"
+    detail: "Czy konsultujemy stworzone modele danych z kluczowymi interesariuszami i uwzględniamy ich opinie?"
+    scale_min_text: "brak konsultacji modeli"
+    scale_max_text: "przeglądy są regularne, a uwagi są uwzględniane"
+
   - id: 9
     category_id: 13
-    subcategory_id: 6
-    description: "Przegląd i dopracowanie modeli z interesariuszami"
-    detail: "Czy konsultujemy i dopracowujemy modele danych z kluczowymi interesariuszami?"
-    scale_min_text: "brak konsultacji modeli"
-    scale_max_text: "modele są przeglądane i aktualizowane"
+    subcategory_id: 7
+    description: "Dopracowanie modeli danych"
+    detail: "Czy dopracowujemy modele na podstawie wyników testów i feedbacku?"
+    scale_min_text: "modele nie są aktualizowane"
+    scale_max_text: "modele są optymalizowane i aktualizowane cyklicznie"
+
   - id: 10
     category_id: 13
-    subcategory_id: 6
-    description: "Raport z analizy i działania naprawcze"
-    detail: "Czy przygotowujemy raporty z analiz i definiujemy działania naprawcze dla NGO?"
-    scale_min_text: "brak raportów końcowych"
-    scale_max_text: "raport i wnioski naprawcze są wdrażane"
+    subcategory_id: 7
+    description: "Raport z analizy"
+    detail: "Czy przygotowujemy raporty z wynikami analiz i przekazujemy je zainteresowanym stronom?"
+    scale_min_text: "brak formalnych raportów z analiz"
+    scale_max_text: "raporty są tworzone, weryfikowane i udostępniane"
 
+  - id: 11
+    category_id: 13
+    subcategory_id: 7
+    description: "Określenie działań naprawczych"
+    detail: "Czy na podstawie raportu definiujemy i wdrażamy działania naprawcze?"
+    scale_min_text: "brak określonych działań naprawczych"
+    scale_max_text: "działania są planowane, wdrażane i monitorowane"
 
+  # Kategoria 13 / Podkategoria 8: Zarządzanie EHS
+  - id: 1
+    category_id: 13
+    subcategory_id: 8
+    description: "Określenie wpływu na zdrowie i bezpieczeństwo środowiska"
+    detail: "Czy identyfikujemy i analizujemy wpływ naszych działań na zdrowie ludzi i bezpieczeństwo środowiska?"
+    scale_min_text: "brak identyfikacji wpływu EHS"
+    scale_max_text: "wpływ jest systematycznie oceniany i uwzględniany w decyzjach"
+
+  - id: 2
+    category_id: 13
+    subcategory_id: 8
+    description: "Opracowanie programu EHS"
+    detail: "Czy opracowujemy program EHS z celami, procedurami i działaniami zapewniającymi bezpieczeństwo i ochronę środowiska?"
+    scale_min_text: "brak programu EHS"
+    scale_max_text: "program EHS jest wdrożony, komunikowany i aktualizowany"
+
+  - id: 3
+    category_id: 13
+    subcategory_id: 8
+    description: "Monitorowanie i zarządzanie programem EHS"
+    detail: "Czy monitorujemy realizację programu EHS i podejmujemy działania korygujące w przypadku odchyleń?"
+    scale_min_text: "brak monitorowania programu EHS"
+    scale_max_text: "program jest monitorowany, audytowany i doskonalony"
+
+  # Kategoria 13 / Podkategoria 9: Zarządzanie zrównoważonym rozwojem
+  - id: 1
+    category_id: 13
+    subcategory_id: 9
+    description: "Rozwój zdolności w zakresie zrównoważonego rozwoju"
+    detail: "Czy rozwijamy kompetencje i zasoby organizacji wspierające cele zrównoważonego rozwoju?"
+    scale_min_text: "brak działań w zakresie rozwoju zdolności zrównoważonego rozwoju"
+    scale_max_text: "zdolności są rozwijane, oceniane i wykorzystywane"
+
+  - id: 2
+    category_id: 13
+    subcategory_id: 9
+    description: "Zarządzanie potencjałem zrównoważonego rozwoju"
+    detail: "Czy zarządzamy wdrożonymi inicjatywami zrównoważonego rozwoju, monitorując ich wpływ i efektywność?"
+    scale_min_text: "brak zarządzania inicjatywami zrównoważonego rozwoju"
+    scale_max_text: "inicjatywy są monitorowane, raportowane i optymalizowane"
