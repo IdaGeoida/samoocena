@@ -88,7 +88,11 @@ export default function App() {
 
   if (step === 'improvement') {
     return (
-      <ProcessImprovement onBack={() => setStep('results')} />
+      <ProcessImprovement
+        onBack={() => setStep('results')}
+        results={results}
+        categories={selectedCategories}
+      />
     )
   }
 
