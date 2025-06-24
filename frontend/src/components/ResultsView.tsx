@@ -47,7 +47,7 @@ export default function ResultsView({ results, categories, onImprove }: Props) {
     if (overall <= 0) return [] as number[]
     const levels: number[] = []
     for (let lvl = 1; lvl <= 5; lvl++) {
-      if (lvl >= overall - 0.5 && lvl < overall + 1) levels.push(lvl)
+      if (lvl - 0.5 <= overall && lvl+1 > overall) levels.push(lvl)
     }
     return levels
   }
