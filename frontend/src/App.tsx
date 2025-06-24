@@ -4,6 +4,7 @@ import CategoryForm from './components/CategoryForm'
 import ResultsView from './components/ResultsView'
 import ProcessImprovement from './components/ProcessImprovement'
 import MetadataForm from './components/MetadataForm'
+import WorkshopForm, { WorkshopData } from './components/WorkshopForm'
 import ReportView from './components/ReportView'
 import IntroPage from './components/IntroPage'
 import { createAssessment } from './api/assessments'
@@ -11,11 +12,12 @@ import { CategoryGroup, Score } from './types'
 import { Container, Button } from 'react-bootstrap'
 
 export default function App() {
-  const [step, setStep] = useState<'intro' | 'start' | 'categories' | 'questions' | 'results' | 'improvement' | 'report'>('intro')
+  const [step, setStep] = useState<'intro' | 'start' | 'categories' | 'questions' | 'results' | 'workshop' | 'improvement' | 'report'>('intro')
   const [selectedCategories, setSelectedCategories] = useState<CategoryGroup[]>([])
   const [currentIndex, setCurrentIndex] = useState(0)
   const [results, setResults] = useState<Score[]>([])
   const [metadata, setMetadata] = useState<{ employees_range: string; volunteers_range: string } | null>(null)
+  const [workshop, setWorkshop] = useState<WorkshopData | null>(null)
 
   useEffect(() => {
     if (step === 'results' && metadata) {
@@ -80,9 +82,15 @@ export default function App() {
     return (
       <Container className="mt-4 d-flex flex-column align-items-center">
         <h2 className="mb-3">Wyniki</h2>
-        <ResultsView results={results || []} categories={selectedCategories} onImprove={() => setStep('improvement')} />
+        <ResultsView results={results || []} categories={selectedCategories} onImprove={() => setStep('workshop')} />
         <Button className="mt-3" onClick={() => setStep('intro')}>Strona główna</Button>
       </Container>
+    )
+  }
+
+  if (step === 'workshop') {
+    return (
+      <WorkshopForm onSubmit={data => { setWorkshop(data); setStep('improvement') }} />
     )
   }
 
