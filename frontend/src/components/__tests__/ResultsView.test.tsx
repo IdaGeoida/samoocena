@@ -28,12 +28,12 @@ const results: Score[] = [
 
 describe('ResultsView', () => {
   it('shows scores with /5.0 suffix', async () => {
-    render(<ResultsView results={results} categories={[categories[0]]} />)
+    render(<ResultsView results={results} categories={[categories[0]]} onImprove={() => {}} />)
     expect(await screen.findByText('4/5.0')).toBeInTheDocument()
   })
 
   it('allows opening multiple categories', async () => {
-    render(<ResultsView results={results} categories={categories} />)
+    render(<ResultsView results={results} categories={categories} onImprove={() => {}} />)
     const user = userEvent.setup()
     await user.click(await screen.findByRole('button', { name: /Cat1/ }))
     await user.click(await screen.findByRole('button', { name: /Cat2/ }))
@@ -42,18 +42,26 @@ describe('ResultsView', () => {
   })
 
   it('shows subcategory averages', async () => {
-    render(<ResultsView results={results} categories={[categories[0]]} />)
+    render(<ResultsView results={results} categories={[categories[0]]} onImprove={() => {}} />)
     await userEvent.setup().click(await screen.findByRole('button', { name: /Cat1/ }))
     expect(await screen.findByText(/Sub1/)).toBeInTheDocument()
     expect((await screen.findAllByText('4.00/5.0')).length).toBeGreaterThan(0)
   })
 
   it('displays explanation section with highlighted levels', async () => {
-    render(<ResultsView results={results} categories={[categories[0]]} />)
+    render(<ResultsView results={results} categories={[categories[0]]} onImprove={() => {}} />)
     expect(await screen.findByRole('heading', { name: /Co oznacza mój wynik\?/ })).toBeInTheDocument()
     const lvl3 = screen.getByText(/Poziom 3/)
     const lvl4 = screen.getByText(/Poziom 4/)
     expect(lvl3.closest('.list-group-item')).toHaveClass('list-group-item-info')
     expect(lvl4.closest('.list-group-item')).toHaveClass('list-group-item-info')
+  })
+
+  it('calls onImprove when button clicked', async () => {
+    const fn = vi.fn()
+    render(<ResultsView results={results} categories={[categories[0]]} onImprove={fn} />)
+    const user = userEvent.setup()
+    await user.click(await screen.findByRole('button', { name: /Usprawnij procesy/ }))
+    expect(fn).toHaveBeenCalled()
   })
 })
