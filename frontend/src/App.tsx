@@ -27,7 +27,7 @@ export default function App() {
 
   if (step === 'intro') {
     return (
-      <IntroPage onStart={() => setStep('start')} onReport={() => setStep('report')} />
+      <IntroPage onStart={() => setStep('start')} />
     )
   }
 
@@ -36,7 +36,6 @@ export default function App() {
       <Container className="mt-4 d-flex flex-column align-items-center">
         <h2 className="mb-3">Metryczka</h2>
         <MetadataForm onSubmit={(m) => { setMetadata(m); setStep('categories') }} />
-        <Button variant="link" className="mt-3" onClick={() => setStep('report')}>Raporty</Button>
       </Container>
     )
   }
