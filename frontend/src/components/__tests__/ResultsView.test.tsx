@@ -1,7 +1,15 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { vi, describe, it, expect } from 'vitest'
 import ResultsView from '../ResultsView'
 import { CategoryGroup, Score } from '../../types'
+
+vi.mock('../../api/subcategories', () => ({
+  getSubcategories: vi.fn(() => Promise.resolve([
+    { id: 1, name: 'Sub1', category_id: 1 },
+    { id: 1, name: 'Sub2', category_id: 2 },
+  ]))
+}))
 
 const categories: CategoryGroup[] = [
   { id: 1, name: 'Cat1', ids: [1] },
@@ -19,17 +27,24 @@ const results: Score[] = [
 ]
 
 describe('ResultsView', () => {
-  it('shows scores with /5.0 suffix', () => {
+  it('shows scores with /5.0 suffix', async () => {
     render(<ResultsView results={results} categories={[categories[0]]} />)
-    expect(screen.getByText('4/5.0')).toBeInTheDocument()
+    expect(await screen.findByText('4/5.0')).toBeInTheDocument()
   })
 
   it('allows opening multiple categories', async () => {
     render(<ResultsView results={results} categories={categories} />)
     const user = userEvent.setup()
-    await user.click(screen.getByRole('button', { name: /Cat1/ }))
-    await user.click(screen.getByRole('button', { name: /Cat2/ }))
-    expect(screen.getByText('Q1')).toBeVisible()
-    expect(screen.getByText('Q2')).toBeVisible()
+    await user.click(await screen.findByRole('button', { name: /Cat1/ }))
+    await user.click(await screen.findByRole('button', { name: /Cat2/ }))
+    expect(await screen.findByText('Q1')).toBeVisible()
+    expect(await screen.findByText('Q2')).toBeVisible()
+  })
+
+  it('shows subcategory averages', async () => {
+    render(<ResultsView results={results} categories={[categories[0]]} />)
+    await userEvent.setup().click(await screen.findByRole('button', { name: /Cat1/ }))
+    expect(await screen.findByText(/Sub1/)).toBeInTheDocument()
+    expect((await screen.findAllByText('4.00/5.0')).length).toBeGreaterThan(0)
   })
 })
