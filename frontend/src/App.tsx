@@ -34,8 +34,17 @@ export default function App() {
   if (step === 'start') {
     return (
       <Container className="mt-4 d-flex flex-column align-items-center">
-        <h2 className="mb-3">Metryczka</h2>
+        <h2 className="mb-3">Metryczka organizacji</h2>
+        <p className="text-center mb-3">
+          Kilka kluczowych informacji o Twojej organizacji pozwoli nam
+          przygotować spersonalizowane rekomendacje i wsparcie.
+        </p>
+        <h4 className="mb-3">Liczebność zespołu</h4>
         <MetadataForm onSubmit={(m) => { setMetadata(m); setStep('categories') }} />
+        <p className="text-center mt-3">
+          Podaj nam te dane, żebyśmy mogli lepiej zrozumieć kontekst Twojej
+          organizacji i dostarczyć Ci jak najlepsze rozwiązania!
+        </p>
       </Container>
     )
   }

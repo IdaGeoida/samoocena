@@ -11,17 +11,17 @@ export default function MetadataForm({ onSubmit }: Props) {
     onSubmit(data as any)
   })
 
-  const empOptions = ['0-10', '11-50', '51-250', '251+']
-  const volOptions = ['0', '1-9', '10-49', '50+']
+  const empOptions = ['0–10', '11–50', '51–250', '251+']
+  const volOptions = ['0', '1–9', '10–49', '50+']
 
   return (
     <Form onSubmit={submit} className="w-100">
       <Form.Group className="mb-3">
-        <Form.Label>Liczba pracowników</Form.Label>
+        <Form.Label>Pracownicy</Form.Label>
         <Controller
           name="employees_range"
           control={control}
-          defaultValue="0-10"
+          defaultValue="0–10"
           render={({ field }) => (
             <Form.Select {...field}>
               {empOptions.map(o => <option key={o} value={o}>{o}</option>)}
@@ -30,7 +30,7 @@ export default function MetadataForm({ onSubmit }: Props) {
         />
       </Form.Group>
       <Form.Group className="mb-3">
-        <Form.Label>Liczba wolontariuszy</Form.Label>
+        <Form.Label>Wolontariusze</Form.Label>
         <Controller
           name="volunteers_range"
           control={control}
