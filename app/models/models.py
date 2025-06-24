@@ -9,13 +9,6 @@ class Category(Base):
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, nullable=False)
 
-class Process(Base):
-    __tablename__ = 'processes'
-    id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, nullable=False)
-    category_id = Column(Integer, ForeignKey('categories.id'), nullable=False)
-
-
 class Subcategory(Base):
     __tablename__ = 'subcategories'
     category_id = Column(Integer, ForeignKey('categories.id'), primary_key=True)

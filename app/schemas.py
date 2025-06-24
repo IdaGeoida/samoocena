@@ -2,18 +2,6 @@ from typing import Optional, List
 from pydantic import BaseModel, ConfigDict
 from datetime import datetime
 
-class ProcessBase(BaseModel):
-    name: str
-    category_id: int
-
-class ProcessCreate(ProcessBase):
-    pass
-
-class ProcessRead(ProcessBase):
-    id: int
-    model_config = ConfigDict(from_attributes=True)
-
-
 class CategoryBase(BaseModel):
     id: int
     name: str
@@ -58,11 +46,6 @@ class QuestionCreate(QuestionBase):
 
 class QuestionRead(QuestionBase):
     model_config = ConfigDict(from_attributes=True)
-
-class ScoreInput(BaseModel):
-    process_id: int
-    score: Optional[int] = None
-
 
 class AssessmentBase(BaseModel):
     employees_range: str

@@ -24,21 +24,6 @@ def client():
     with TestClient(app) as c:
         yield c
 
-def test_score_ignores_missing_process(client):
-    client.post('/api/categories/', json={'id': 1, 'name': 'Cat'})
-    client.post('/api/processes/', json={'name': 'P1', 'category_id': 1})
-    client.post('/api/processes/', json={'name': 'P2', 'category_id': 1})
-    payload = [
-        {'process_id': 1, 'score': 2},
-        {'process_id': 2, 'score': 4},
-        {'process_id': 99, 'score': 5}
-    ]
-    resp = client.post('/api/scoring/', json=payload)
-    assert resp.status_code == 200
-    data = resp.json()
-    assert data['by_process'] == [2, 4]
-    assert data['overall'] == pytest.approx(3)
-
 def test_list_questions_multiple_categories(client):
     client.post('/api/categories/', json={'id': 1, 'name': 'Cat1'})
     client.post('/api/categories/', json={'id': 2, 'name': 'Cat2'})

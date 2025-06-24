@@ -70,36 +70,6 @@ def test_create_question(client):
     assert len(data) == 1
 
 
-def test_score_processes(client):
-    client.post('/api/categories/', json={'id': 1, 'name': 'Cat'})
-    client.post('/api/processes/', json={'name': 'P1', 'category_id': 1})
-    client.post('/api/processes/', json={'name': 'P2', 'category_id': 1})
-    client.post('/api/processes/', json={'name': 'P3', 'category_id': 1})
-
-    payload = [
-        {'process_id': 1, 'score': 1},
-        {'process_id': 2, 'score': None},
-        {'process_id': 3, 'score': 5}
-    ]
-    resp = client.post('/api/scoring/', json=payload)
-    assert resp.status_code == 200
-    data = resp.json()
-    assert data['by_process'] == [1, 5]
-    assert data['overall'] == pytest.approx(3)
-
-
-def test_list_processes_by_category(client):
-    client.post('/api/categories/', json={'id': 1, 'name': 'Cat1'})
-    client.post('/api/categories/', json={'id': 2, 'name': 'Cat2'})
-    client.post('/api/processes/', json={'name': 'P1', 'category_id': 1})
-    client.post('/api/processes/', json={'name': 'P2', 'category_id': 2})
-
-    resp = client.get('/api/processes/', params={'category_id': '1'})
-    assert resp.status_code == 200
-    data = resp.json()
-    assert len(data) == 1
-    assert data[0]['category_id'] == 1
-
 
 def test_list_questions_by_category(client):
     client.post('/api/categories/', json={'id': 1, 'name': 'Cat1'})
