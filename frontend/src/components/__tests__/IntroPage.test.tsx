@@ -6,7 +6,7 @@ import IntroPage from '../IntroPage'
 describe('IntroPage', () => {
   it('calls onStart when button clicked', async () => {
     const start = vi.fn()
-    render(<IntroPage onStart={start} onReport={() => {}} />)
+    render(<IntroPage onStart={start} />)
     const user = userEvent.setup()
     await user.click(screen.getByRole('button', { name: /Rozpocznij/ }))
     expect(start).toHaveBeenCalled()

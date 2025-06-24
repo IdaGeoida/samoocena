@@ -19,6 +19,7 @@ export default function WorkshopForm({ onSubmit }: Props) {
   return (
     <Container className="mt-4 d-flex flex-column align-items-center">
       <h2 className="mb-3">Kwestionariusz warsztatowy</h2>
+      <p className="mb-3">Żeby lepiej zrozumieć Twoje potrzeby, musimy się lepiej poznać.</p>
       <Form onSubmit={submit} className="w-100" style={{ maxWidth: '500px' }}>
         <Form.Group className="mb-3" controlId="area">
           <Form.Label>Obszar działania</Form.Label>
