@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Accordion, ListGroup } from 'react-bootstrap'
+import CategoryIcon from './CategoryIcon'
 import { CategoryGroup, Score, Subcategory } from '../types'
 import { getSubcategories } from '../api/subcategories'
 
@@ -51,6 +52,7 @@ export default function ResultsView({ results, categories }: Props) {
         {catData.map((c, idx) => (
           <Accordion.Item eventKey={String(idx)} key={c.category.id}>
             <Accordion.Header>
+              <CategoryIcon id={c.category.id} className="me-2" />
               {c.category.name} –{' '}
               <span className={scoreClass(c.avg)}>{c.avg.toFixed(2)}/5.0</span>
             </Accordion.Header>
