@@ -45,10 +45,11 @@ export default function ResultsView({ results, categories, onImprove }: Props) {
 
   const highlightLevels = () => {
     if (overall <= 0) return [] as number[]
-    const base = Math.floor(overall)
-    if (base >= 5) return [5]
-    const lvl = Math.max(1, base)
-    return [lvl, lvl + 1]
+    const levels: number[] = []
+    for (let lvl = 1; lvl <= 5; lvl++) {
+      if (lvl >= overall - 0.5 && lvl < overall + 1) levels.push(lvl)
+    }
+    return levels
   }
 
   const highlightClass = (level: number) =>
