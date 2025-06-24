@@ -106,13 +106,20 @@ export default function ProcessImprovement({ onBack, results, categories }: Prop
     })
   }
 
+  const scoreClass = (value: number) => {
+    if (value >= 4) return 'text-success'
+    if (value >= 3) return 'text-warning'
+    if (value > 0) return 'text-danger'
+    return 'text-secondary'
+  }
+
   const generateSummary = () => {
     const lines: string[] = []
     const details: string[] = []
-    order.forEach((id, idx) => {
+    order.forEach(id => {
       const item = items[id]
       if (!item) return
-      lines.push(`${idx + 1} ${typeLabel(item.type)} ${item.name}`)
+      lines.push(`${typeLabel(item.type)} ${item.name}`)
       const children = getChildren(id)
       if (children.length) {
         const names = children.map(cid => items[cid].name).join(', ')
@@ -215,17 +222,20 @@ export default function ProcessImprovement({ onBack, results, categories }: Prop
                     handleDragOver(idx)
                   }}
                   onDrop={() => setDragIndex(null)}
-                  className="d-flex justify-content-between"
+                  className="d-flex justify-content-between clickable"
                 >
-                  <span>
-                    {idx + 1}. {typeLabel(item.type)} {item.name}
+                  <span className="d-flex flex-column">
+                    <small className="text-muted">{typeLabel(item.type)}</small>
+                    <span>{item.name}</span>
                   </span>
-                  <span>{item.score > 0 ? `${item.score.toFixed(2)}/5.0` : 'N/D'}</span>
+                  <span className={item.score > 0 ? scoreClass(item.score) : 'text-secondary'}>
+                    {item.score > 0 ? `${item.score.toFixed(2)}/5.0` : 'N/D'}
+                  </span>
                 </ListGroup.Item>
               )
             })}
           </ListGroup>
-          <Button className="mt-3" onClick={generateSummary}>
+          <Button className="mt-3" onClick={generateSummary} disabled={order.length === 0}>
             Generuj podsumowanie
           </Button>
           {summary && (
