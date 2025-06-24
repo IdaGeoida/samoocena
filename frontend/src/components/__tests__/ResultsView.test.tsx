@@ -47,4 +47,13 @@ describe('ResultsView', () => {
     expect(await screen.findByText(/Sub1/)).toBeInTheDocument()
     expect((await screen.findAllByText('4.00/5.0')).length).toBeGreaterThan(0)
   })
+
+  it('displays explanation section with highlighted levels', async () => {
+    render(<ResultsView results={results} categories={[categories[0]]} />)
+    expect(await screen.findByRole('heading', { name: /Co oznacza mój wynik\?/ })).toBeInTheDocument()
+    const lvl3 = screen.getByText(/Poziom 3/)
+    const lvl4 = screen.getByText(/Poziom 4/)
+    expect(lvl3.closest('.list-group-item')).toHaveClass('list-group-item-info')
+    expect(lvl4.closest('.list-group-item')).toHaveClass('list-group-item-info')
+  })
 })
